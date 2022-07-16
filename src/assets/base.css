@@ -92,6 +92,10 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+strong {
+  font-weight: bold;
+}
+
 #app {
   margin-left: 65px;
   background: linear-gradient(

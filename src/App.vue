@@ -34,7 +34,7 @@ import DKLogo from "@/components/DKLogo.vue";
       <div style="max-width: 60vh">
         <RouterView />
         <div style="display: flex; float: right;">
-          <DKArrowButton left="true">Previous</DKArrowButton>
+          <DKArrowButton :left="true">Previous</DKArrowButton>
           <DKArrowButton>Next</DKArrowButton>
         </div>
       </div>
