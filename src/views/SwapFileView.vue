@@ -1,6 +1,11 @@
 <script>
 export default {
   props: {},
+  computed: {
+    max_size: function () {
+      return this.rec_size * 2;
+    },
+  },
   data: function () {
     return {
       type: 0,
@@ -66,23 +71,6 @@ export default {
 <style scoped>
 .error-msg {
   color: var(--dk-accent);
-}
-
-select {
-  appearance: none;
-  background: var(--dk-button-color);
-  border: 0;
-  color: var(--color-text);
-  text-align: center;
-}
-
-select:hover {
-  background: #ffffff30;
-}
-
-select:focus {
-  background: #a2a2a230;
-  outline: none;
 }
 
 input.dk-slider {
