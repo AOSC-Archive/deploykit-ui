@@ -9,6 +9,7 @@ export default {
     locale: String,
     timezone: String,
     rtc_utc: Boolean,
+    rescue_size: Number,
   },
 };
 </script>
@@ -22,6 +23,15 @@ export default {
         <span class="emphasis">/dev/nvme0n1p2</span> will be
         <span class="emphasis">erased and formatted as ext4</span>.
       </li>
+      <ul v-if="rescue_size > 0">
+        <li>
+          A
+          <span class="emphasis"
+            >A {{ rescue_size }}GiB partition will be created for
+            RescueKit.</span
+          >.
+        </li>
+      </ul>
       <li>
         AOSC OS <span class="emphasis">Desktop</span> will be downloaded from
         <span class="emphasis">Fastly CDN</span>.

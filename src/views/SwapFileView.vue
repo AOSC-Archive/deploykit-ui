@@ -33,7 +33,7 @@ export default {
           <option :value="2">Disabled</option>
         </select>
         <div></div>
-        <p class="error-msg" v-if="type === 2 || (type === 1 && size == 0)">
+        <p class="error-msg" v-if="type === 2">
           <i>
             Running AOSC OS without a swapfile may cause instability at high
             memory load, resulting in possible application crashes and data
@@ -41,19 +41,35 @@ export default {
           </i>
         </p>
       </section>
-      <input
-        class="dk-slider"
-        type="range"
-        :max="rec_size * 2"
-        min="0"
-        step="0.5"
-        v-model="size"
-        v-if="type === 1"
-      />
-      <div class="sliderticks" v-if="type === 1">
-        <p>0GiB</p>
-        <p>{{ rec_size }}GiB</p>
-        <p>{{ rec_size * 2 }}GiB</p>
+      <br />
+      <div style="display: flex" v-if="type === 1">
+        <section style="width: 75%; margin-left: 0.7rem">
+          <input
+            class="dk-slider"
+            type="range"
+            :max="rec_size * 2"
+            min="0"
+            step="0.5"
+            v-model="size"
+          />
+          <div class="sliderticks">
+            <p>0GiB</p>
+            <p>{{ rec_size }}GiB</p>
+            <p>{{ rec_size * 2 }}GiB</p>
+          </div>
+        </section>
+        <span style="float: right; width: 25%; margin-left: 2.4rem">
+          <input
+            type="number"
+            :max="rec_size * 2"
+            min="0"
+            step="0.5"
+            style="width: 70%"
+            v-model="size"
+            required
+          />
+          GiB
+        </span>
       </div>
       <br />
       <p v-if="type === 1" style="font-size: 0.9rem; margin-left: 30%">
@@ -63,6 +79,12 @@ export default {
           >Installer recommends that you create a swapfile of {{ rec_size }}GiB
           in size.</i
         >
+      </p>
+      <p class="error-msg" v-if="type === 1 && size == 0">
+        <i>
+          Running AOSC OS without a swapfile may cause instability at high
+          memory load, resulting in possible application crashes and data loss!
+        </i>
       </p>
     </form>
   </div>

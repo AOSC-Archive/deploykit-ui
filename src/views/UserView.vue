@@ -5,8 +5,9 @@
     <h1>User Account</h1>
     <p>
       Please enter and confirm your desired username and password. Please note
-      that your username must start witha lower-cased alphabetical letter (a-z),
-      and contain only lower-cased letters a-z, numbers 0-0, and dash ("-").
+      that your username must start with a lower-cased alphabetical letter
+      (a-z), and contain only lower-cased letters a-z, numbers 0-0, and dash
+      ("-").
     </p>
     <form class="form-layout">
       <label for="username">Username</label>

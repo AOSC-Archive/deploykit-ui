@@ -1,14 +1,12 @@
+<script setup>
+import DKIconButton from "@/components/DKIconButton.vue";
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>Test?</h1>
+    <DKIconButton></DKIconButton>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style></style>
