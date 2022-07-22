@@ -27,9 +27,16 @@ export default {
       @keyup.enter="select(index)"
       @keyup.space="select(index)"
     >
-      <div style="text-align: left; margin: 0.5rem 0.5rem 0 0.5rem">
-        <h2>{{ option.title }}</h2>
-        <p :class="option.hl ? 'error-msg' : ''">{{ option.body }}</p>
+      <div class="button-box">
+        <h2 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem">
+          {{ option.title }}
+        </h2>
+        <p
+          style="font-size: 0.88rem; line-height: 1.2"
+          :class="option.hl ? 'error-msg' : ''"
+        >
+          {{ option.body }}
+        </p>
       </div>
     </button>
   </div>
@@ -44,10 +51,21 @@ button.button.selected {
   background: #dddddd56;
 }
 
+button[disabled].button:hover {
+  background: transparent;
+}
+
 .list-container button {
   height: unset;
   line-height: 1.2rem;
   background-color: transparent;
+  width: 100%;
+  align-content: flex-start;
+}
+
+.button-box {
+  text-align: left;
+  margin: 0.5rem 0.5rem 0 0.5rem;
 }
 
 button:disabled,

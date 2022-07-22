@@ -1,4 +1,12 @@
-<script></script>
+<script>
+export default {
+  props: {
+    icon: String,
+    title: String,
+    explain: String,
+  },
+};
+</script>
 
 <template>
   <button class="button" style="height: 100%">
@@ -9,8 +17,8 @@
         height="36"
       />
       <div class="text-box">
-        <span style="font-size: 1rem">Manage Partition</span>
-        <h2 style="font-size: 1.5rem">GParted</h2>
+        <span style="font-size: 1rem">{{ explain }}</span>
+        <h2 style="font-size: 1.5rem">{{ title }}</h2>
       </div>
     </div>
   </button>

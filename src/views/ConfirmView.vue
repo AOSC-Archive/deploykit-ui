@@ -25,7 +25,6 @@ export default {
       </li>
       <ul v-if="rescue_size > 0">
         <li>
-          A
           <span class="emphasis"
             >A {{ rescue_size }}GiB partition will be created for
             RescueKit.</span

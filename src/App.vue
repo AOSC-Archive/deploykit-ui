@@ -1,7 +1,21 @@
 <script setup>
 import { RouterView } from "vue-router";
-import DKArrowButton from "@/components/DKArrowButton.vue";
 import DKLogo from "@/components/DKLogo.vue";
+</script>
+
+<script>
+export default {
+  data: function () {
+    return {
+      page_number: 0,
+    };
+  },
+  methods: {
+    on_abort: function () {
+      this.$router.push("/abort");
+    },
+  },
+};
 </script>
 
 <template>
@@ -10,10 +24,8 @@ import DKLogo from "@/components/DKLogo.vue";
       class="quit-button"
       style="padding-top: 1rem"
       aria-label="close button"
-      @click="
-        {
-        }
-      "
+      @click="on_abort"
+      @keyup.enter="on_abort"
     >
       <img
         alt="window close icon"
@@ -36,13 +48,13 @@ import DKLogo from "@/components/DKLogo.vue";
         <nav>Final Steps</nav>
       </div>
     </div>
-    <main style="padding-top: 1rem; margin-left: 4rem">
-      <div style="max-width: 60vh">
+    <main style="padding-top: 1rem; margin-left: 4rem; max-width: 35vw">
+      <div style="max-height: 65vh; overflow-y: auto; margin-right: 5rem">
         <RouterView />
-        <div style="display: flex; float: right">
+        <!-- <div style="display: flex; float: right; margin-right: 1em">
           <DKArrowButton :left="true">Previous</DKArrowButton>
           <DKArrowButton>Next</DKArrowButton>
-        </div>
+        </div> -->
       </div>
     </main>
   </div>
@@ -55,7 +67,9 @@ import DKLogo from "@/components/DKLogo.vue";
       max="100"
       class="progress-bar"
     ></progress>
-    <label for="progressbar" class="eta-box">5 - 10 minutes remaining...</label>
+    <label for="progressbar" class="eta-box"
+      >25 - 30 minutes remaining...</label
+    >
   </div>
 </template>
 
