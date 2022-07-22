@@ -21,16 +21,19 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: WelcomeView,
+      meta: { steps: 0 },
     },
     {
       path: "/rescue",
       name: "rescue",
       component: RescueKitView,
+      meta: { steps: 0 },
     },
     {
       path: "/users",
       name: "users",
       component: UserView,
+      meta: { steps: 1 },
     },
     {
       path: "/abort",
@@ -41,6 +44,7 @@ const router = createRouter({
       path: "/finish",
       name: "complete",
       component: CompleteView,
+      meta: { steps: 4 },
     },
     {
       path: "/error",
@@ -51,41 +55,49 @@ const router = createRouter({
       path: "/swapfile",
       name: "swapfile",
       component: SwapFileView,
+      meta: { steps: 1 },
     },
     {
       path: "/mirrors",
       name: "mirrors",
       component: MirrorView,
+      meta: { steps: 0 },
     },
     {
       path: "/locales",
       name: "locales",
       component: LocaleView,
+      meta: { steps: 1 },
     },
     {
       path: "/confirm",
       name: "confirm",
       component: ConfirmView,
+      meta: { steps: 1 },
     },
     {
       path: "/hostname",
       name: "hostname",
       component: HostnameView,
+      meta: { steps: 1 },
     },
     {
       path: "/partitions",
       name: "partitions",
       component: PartitionView,
+      meta: { steps: 0 },
     },
     {
       path: "/variants",
       name: "variants",
       component: VariantView,
+      meta: { steps: 0 },
     },
     {
       path: "/install",
       name: "install",
       component: InstallView,
+      meta: { steps: 2 },
     },
   ],
 });

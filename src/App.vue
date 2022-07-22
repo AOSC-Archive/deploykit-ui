@@ -8,12 +8,24 @@ export default {
   data: function () {
     return {
       page_number: 0,
+      progress: 10,
     };
   },
   methods: {
     on_abort: function () {
       this.$router.push("/abort");
     },
+    nav_menu_bold: function (step) {
+      return this.page_number >= step ? "active" : "";
+    },
+  },
+  mounted: function () {
+    const my = this;
+    this.$router.beforeEach((to) => {
+      if (to.name == "error" || to.name == "abort") return null;
+      my.page_number = to.meta.steps;
+      my.progress = my.page_number * 25;
+    });
   },
 };
 </script>
@@ -42,10 +54,10 @@ export default {
   <div class="main-container">
     <div>
       <div class="wrapper">
-        <nav class="active">Introduction</nav>
-        <nav>User Preferences</nav>
-        <nav>Installation</nav>
-        <nav>Final Steps</nav>
+        <nav :class="nav_menu_bold(0)">Introduction</nav>
+        <nav :class="nav_menu_bold(1)">User Preferences</nav>
+        <nav :class="nav_menu_bold(2)">Installation</nav>
+        <nav :class="nav_menu_bold(3)">Final Steps</nav>
       </div>
     </div>
     <main style="padding-top: 1rem; margin-left: 4rem; max-width: 35vw">
@@ -63,7 +75,7 @@ export default {
     <progress
       id="progressbar"
       aria-label="overall progress"
-      value="10"
+      :value="progress"
       max="100"
       class="progress-bar"
     ></progress>
