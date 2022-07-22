@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 import DKArrowButton from "@/components/DKArrowButton.vue";
 import DKLogo from "@/components/DKLogo.vue";
 </script>
@@ -9,12 +9,18 @@ import DKLogo from "@/components/DKLogo.vue";
     <button
       class="quit-button"
       style="padding-top: 1rem"
+      aria-label="close button"
       @click="
         {
         }
       "
     >
-      <img src="@/assets/window-close-symbolic.svg" width="30" height="30" />
+      <img
+        alt="window close icon"
+        src="@/assets/window-close-symbolic.svg"
+        width="30"
+        height="30"
+      />
     </button>
     <header>
       <DKLogo />
@@ -33,7 +39,7 @@ import DKLogo from "@/components/DKLogo.vue";
     <main style="padding-top: 1rem; margin-left: 4rem">
       <div style="max-width: 60vh">
         <RouterView />
-        <div style="display: flex; float: right;">
+        <div style="display: flex; float: right">
           <DKArrowButton :left="true">Previous</DKArrowButton>
           <DKArrowButton>Next</DKArrowButton>
         </div>
@@ -42,8 +48,14 @@ import DKLogo from "@/components/DKLogo.vue";
   </div>
   <!-- status bar -->
   <div class="status-bar">
-    <progress value="10" max="100" class="progress-bar"></progress>
-    <span class="eta-box">5 - 10 minutes remaining...</span>
+    <progress
+      id="progressbar"
+      aria-label="overall progress"
+      value="10"
+      max="100"
+      class="progress-bar"
+    ></progress>
+    <label for="progressbar" class="eta-box">5 - 10 minutes remaining...</label>
   </div>
 </template>
 
@@ -71,8 +83,9 @@ import DKLogo from "@/components/DKLogo.vue";
   height: 10px;
 }
 
-.progress-bar::-webkit-progress-bar {
+.progress-bar[value]::-webkit-progress-value {
   background: var(--dk-accent);
+  transition: width 200ms;
 }
 
 .progress-bar::-moz-progress-bar {

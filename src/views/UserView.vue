@@ -11,11 +11,11 @@
     </p>
     <form class="form-layout">
       <label for="username">Username</label>
-      <input name="username" type="text" />
+      <input id="username" name="username" type="text" />
       <label for="pwd">Password</label>
-      <input name="pwd" type="password" />
+      <input id="pwd" name="pwd" type="password" />
       <label for="pwd2">Confirm Password</label>
-      <input name="pwd2" type="password" />
+      <input id="pwd2" name="pwd2" type="password" />
     </form>
     <p class="error-msg"></p>
   </div>

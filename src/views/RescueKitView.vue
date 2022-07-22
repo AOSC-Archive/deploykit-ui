@@ -1,0 +1,36 @@
+<script setup>
+import DKListSelect from "@/components/DKListSelect.vue";
+
+const options = [
+  {
+    title: "Yes",
+    body: "Installer has detected insufficient space on your storage device. RescueKit requires 5GiB of additional space in your system partition to install.",
+    disabled: true,
+  },
+  {
+    title: "No (Not Recommended)",
+    body: "Without RescueKit, you will likely need to use an external live media to repair or reinstall AOSC OS.",
+    hl: true,
+  },
+];
+</script>
+
+<template>
+  <div>
+    <h1>RescueKit</h1>
+    <p>
+      RescueKit is a rescue environment for AOSC OS. RescueKit provides tools
+      for data backup and recovery, reinstallation, and more. Would you like to
+      install RescueKit?
+    </p>
+    <section>
+      <DKListSelect :options="options" />
+    </section>
+  </div>
+</template>
+
+<style scoped>
+.error-msg {
+  color: var(--dk-accent);
+}
+</style>
