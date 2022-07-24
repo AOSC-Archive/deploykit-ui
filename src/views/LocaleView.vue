@@ -1,5 +1,6 @@
 <script setup>
 import DKFilterSelect from "@/components/DKFilterSelect.vue";
+import DKBottomSteps from "../components/DKBottomSteps.vue";
 </script>
 
 <script>
@@ -53,6 +54,7 @@ export default {
       </p>
     </form>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>

@@ -1,4 +1,5 @@
 <script>
+import DKBottomSteps from "../components/DKBottomSteps.vue";
 export default {
   props: {},
   computed: {
@@ -6,6 +7,7 @@ export default {
       return this.rec_size * 2;
     },
   },
+  components: { DKBottomSteps },
   data: function () {
     return {
       type: 0,
@@ -98,6 +100,7 @@ export default {
       </p>
     </form>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>

@@ -1,5 +1,6 @@
 <script setup>
 import DKBottomActions from "@/components/DKBottomActions.vue";
+import DKStepButtons from "@/components/DKStepButtons.vue";
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import DKBottomActions from "@/components/DKBottomActions.vue";
   </div>
   <DKBottomActions>
     <button class="button">Benchmark...</button>
+    <DKStepButtons />
   </DKBottomActions>
 </template>
 

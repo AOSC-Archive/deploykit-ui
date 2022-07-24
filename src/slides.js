@@ -25,7 +25,7 @@ const slides_data = [
   },
   {
     title: "You Ready",
-    body: "At AOSC, we pride ourselves with friendly and ready support for our users. Warranty and merchantability notwithstanding,we believe that our users should be respected of their time and energy spent on adapting to a new work environment.\nAt Telegram, Discord, IRC, or Matrix, our maintainers,contributors, and friends are ready to offer help. We wish you much joy at our community and great success with AOSC OS.\nEnjoy!",
+    body: "At AOSC, we pride ourselves with friendly and ready support for our users. Warranty and merchantability notwithstanding, we believe that our users should be respected of their time and energy spent on adapting to a new work environment.\nAt Telegram, Discord, IRC, or Matrix, our maintainers, contributors, and friends are ready to offer help. We wish you much joy at our community and great success with AOSC OS.\nEnjoy!",
   },
 ];
 

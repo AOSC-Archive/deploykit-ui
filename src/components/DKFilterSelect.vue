@@ -73,7 +73,7 @@ div.select::after {
   color: #1f1f1f;
   display: block;
   text-align: left;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 .dropdown-content a:hover {

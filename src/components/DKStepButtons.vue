@@ -4,7 +4,12 @@ import DKBottomRightButtons from "./DKBottomRightButtons.vue";
 
 <template>
   <DKBottomRightButtons>
-    <button class="button">Previous</button>
-    <button class="button">Next</button>
+    <button class="button" @click="$router.back()">Previous</button>
+    <button
+      class="button"
+      @click="$router.push($router.currentRoute.value.meta.next)"
+    >
+      Next
+    </button>
   </DKBottomRightButtons>
 </template>

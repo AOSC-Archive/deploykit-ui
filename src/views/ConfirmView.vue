@@ -1,4 +1,5 @@
 <script>
+import DKBottomSteps from "../components/DKBottomSteps.vue";
 export default {
   props: {
     part: String,
@@ -11,6 +12,7 @@ export default {
     rtc_utc: Boolean,
     rescue_size: Number,
   },
+  components: { DKBottomSteps },
 };
 </script>
 
@@ -59,6 +61,7 @@ export default {
       </i>
     </p>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>

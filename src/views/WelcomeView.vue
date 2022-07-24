@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import DKBottomSteps from "../components/DKBottomSteps.vue";
+</script>
 
 <template>
   <div>
@@ -14,4 +16,5 @@
       more time on slower hardware.
     </p>
   </div>
+  <DKBottomSteps />
 </template>

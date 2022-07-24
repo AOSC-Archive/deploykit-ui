@@ -1,4 +1,6 @@
-<script></script>
+<script setup>
+import DKBottomSteps from "../components/DKBottomSteps.vue";
+</script>
 
 <template>
   <div>
@@ -13,6 +15,7 @@
       </button>
     </section>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>

@@ -1,5 +1,6 @@
 <script setup>
 import DKListSelect from "@/components/DKListSelect.vue";
+import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 const options = [
   {
@@ -27,6 +28,7 @@ const options = [
       <DKListSelect :options="options" />
     </section>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>

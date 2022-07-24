@@ -63,10 +63,6 @@ export default {
     <main>
       <div style="height: 100%; overflow-y: auto; margin-right: 3rem">
         <RouterView />
-        <!-- <div style="display: flex; float: right; margin-right: 1em">
-          <DKArrowButton :left="true">Previous</DKArrowButton>
-          <DKArrowButton>Next</DKArrowButton>
-        </div> -->
       </div>
     </main>
   </div>
@@ -79,6 +75,11 @@ export default {
       max="100"
       class="progress-bar"
     ></progress>
+    <span class="info-box" v-if="page_number > 1 && page_number < 4"
+      ><i
+        >Step 5/7: Generating initramfs (initial RAM filesystem)... (91%)</i
+      ></span
+    >
     <label for="progressbar" class="eta-box"
       >25 - 30 minutes remaining...</label
     >
@@ -123,6 +124,12 @@ export default {
 
 .progress-bar::-moz-progress-bar {
   background: var(--dk-accent);
+}
+
+.info-box {
+  margin-top: 0.5em;
+  float: left;
+  margin-left: 0.3rem;
 }
 
 .eta-box {

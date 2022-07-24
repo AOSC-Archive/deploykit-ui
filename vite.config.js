@@ -1,3 +1,4 @@
+/* eslint-env node */
 import { fileURLToPath, URL } from "url";
 
 import path from "path";
@@ -9,7 +10,6 @@ import vueI18n from "@intlify/vite-plugin-vue-i18n";
 export default defineConfig({
   plugins: [
     vue(),
-    // eslint-disable-next-line no-undef
     vueI18n({ include: path.resolve(__dirname, "./src/locales/**") }),
   ],
   resolve: {

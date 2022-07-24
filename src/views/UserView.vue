@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import DKBottomSteps from "../components/DKBottomSteps.vue";
+</script>
 
 <template>
   <div>
@@ -19,6 +21,7 @@
     </form>
     <p class="error-msg"></p>
   </div>
+  <DKBottomSteps />
 </template>
 
 <style scoped>
