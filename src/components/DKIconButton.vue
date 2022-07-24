@@ -1,7 +1,6 @@
 <script>
 export default {
   props: {
-    icon: String,
     title: String,
     explain: String,
   },
@@ -11,11 +10,7 @@ export default {
 <template>
   <button class="button" style="height: 100%">
     <div class="icon-container">
-      <img
-        class="icon"
-        src="@/assets/drive-harddisk-root-symbolic.svg"
-        height="36"
-      />
+      <slot />
       <div class="text-box">
         <span style="font-size: 1rem">{{ explain }}</span>
         <h2 style="font-size: 1.5rem">{{ title }}</h2>
@@ -24,11 +19,13 @@ export default {
   </button>
 </template>
 
-<style scoped>
-.icon {
+<style>
+.icon-container img {
   margin: 0 0.5rem 0 0;
 }
+</style>
 
+<style scoped>
 .text-box {
   line-height: 0.9;
   margin-top: 0rem;

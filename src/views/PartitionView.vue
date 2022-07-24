@@ -48,7 +48,9 @@ export default {
 
     <section>
       <p style="display: flex">
-        <DKIconButton title="GParted" explain="Manange Partitions" />
+        <DKIconButton title="GParted" explain="Manange Partitions">
+          <img src="@/assets/drive-harddisk-root-symbolic.svg" height="36" />
+        </DKIconButton>
       </p>
     </section>
   </div>

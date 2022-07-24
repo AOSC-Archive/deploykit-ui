@@ -65,6 +65,22 @@ select:focus {
   outline: none;
 }
 
+.select::after {
+  content: " ";
+  display: block;
+  height: 0.625em;
+  margin-top: -1.6em;
+  pointer-events: none;
+  right: 0.725em;
+  position: absolute;
+  border: 2px solid #fff;
+  border-right: 0;
+  border-top: 0;
+  width: 0.625em;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
 .button {
   appearance: none;
   border: 0;

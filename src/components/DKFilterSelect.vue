@@ -39,14 +39,16 @@ export default {
 
 <template>
   <div class="dropdown-content">
-    <input
-      :name="input_name"
-      type="text"
-      v-model="user_input"
-      :style="show_dropdown ? '' : 'text-align: center'"
-      placeholder="Start typing to search..."
-      @focus="edit_selection"
-    />
+    <div class="select">
+      <input
+        :name="input_name"
+        type="text"
+        v-model="user_input"
+        :style="show_dropdown ? '' : 'text-align: center'"
+        placeholder="Start typing to search..."
+        @focus="edit_selection"
+      />
+    </div>
     <div class="dropdown-gutter" v-if="show_dropdown">
       <a
         v-for="(opt, index) in filtered_options"
@@ -61,6 +63,10 @@ export default {
 </template>
 
 <style scoped>
+div.select::after {
+  margin-top: -1.2em;
+}
+
 .dropdown-content a {
   padding: 12px 16px;
   text-decoration: none;

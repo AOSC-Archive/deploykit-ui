@@ -27,11 +27,13 @@ export default {
     <form>
       <section class="form-layout">
         <label for="swap">Swapfile</label>
-        <select name="swap" v-model="type">
-          <option :value="0">Automatic</option>
-          <option :value="1">Custom</option>
-          <option :value="2">Disabled</option>
-        </select>
+        <p class="select">
+          <select name="swap" v-model="type">
+            <option :value="0">Automatic</option>
+            <option :value="1">Custom</option>
+            <option :value="2">Disabled</option>
+          </select>
+        </p>
         <div></div>
         <p class="error-msg" v-if="type === 2">
           <i>
@@ -58,13 +60,13 @@ export default {
             <p>{{ rec_size * 2 }}GiB</p>
           </div>
         </section>
-        <span style="float: right; width: 25%; margin-left: 2.4rem">
+        <span style="float: right; width: 25%; margin-left: 2rem">
           <input
             type="number"
             :max="rec_size * 2"
             min="0"
             step="0.5"
-            style="width: 70%"
+            style="width: 67%"
             v-model="size"
             required
           />
@@ -105,6 +107,7 @@ input.dk-slider {
 input,
 select {
   margin-bottom: 0.5em;
+  width: 100%;
 }
 
 .dk-slider::-webkit-slider-thumb {

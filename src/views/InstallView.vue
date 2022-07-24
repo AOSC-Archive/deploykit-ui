@@ -46,8 +46,12 @@ export default {
     </article>
   </div>
   <p style="display: flex; column-gap: 0.5rem">
-    <DKIconButton title="Firefox" explain="Web Browser" />
-    <DKIconButton title="BGM" explain="Mute" />
+    <DKIconButton title="Firefox" explain="Web Browser">
+      <img src="@/assets/web-browser-symbolic.svg" height="36" />
+    </DKIconButton>
+    <DKIconButton title="BGM" explain="Mute">
+      <img src="@/assets/audio-volume-muted.svg" height="36" />
+    </DKIconButton>
   </p>
 </template>
 

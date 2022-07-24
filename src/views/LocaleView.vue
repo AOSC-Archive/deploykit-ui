@@ -41,12 +41,16 @@ export default {
     <p class="error-msg"></p>
     <form class="form-layout">
       <label for="timezone">Timezone</label>
-      <select name="timezone"></select>
+      <p class="select">
+        <select name="timezone"></select>
+      </p>
       <label for="rtc">RTC Timezone</label>
-      <select name="rtc">
-        <option value="0">UTC (Recommended)</option>
-        <option value="1">Local time (like Windows)</option>
-      </select>
+      <p class="select">
+        <select name="rtc">
+          <option value="0">UTC (Recommended)</option>
+          <option value="1">Local time (like Windows)</option>
+        </select>
+      </p>
     </form>
   </div>
 </template>
@@ -59,5 +63,6 @@ export default {
 input,
 select {
   margin-bottom: 0.5em;
+  width: 100%;
 }
 </style>
