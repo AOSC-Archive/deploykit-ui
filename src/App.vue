@@ -60,8 +60,8 @@ export default {
         <nav :class="nav_menu_bold(3)">Final Steps</nav>
       </div>
     </div>
-    <main style="padding-top: 1rem; margin-left: 4rem; max-width: 35vw">
-      <div style="max-height: 65vh; overflow-y: auto; margin-right: 5rem">
+    <main>
+      <div style="height: 100%; overflow-y: auto; margin-right: 3rem">
         <RouterView />
         <!-- <div style="display: flex; float: right; margin-right: 1em">
           <DKArrowButton :left="true">Previous</DKArrowButton>
@@ -90,7 +90,14 @@ export default {
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding: 0 2rem;
-  max-height: 100vh;
+  height: 75vh;
+}
+
+.main-container main {
+  padding-top: 1rem;
+  margin-left: 4rem;
+  max-width: 35vw;
+  height: 100%;
 }
 
 .status-bar {

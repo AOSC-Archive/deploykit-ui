@@ -9,6 +9,7 @@ import ConfirmView from "@/views/ConfirmView.vue";
 import SwapFileView from "@/views/SwapFileView.vue";
 import LocaleView from "@/views/LocaleView.vue";
 import MirrorView from "@/views/MirrorView.vue";
+import MirrorSelectView from "@/views/MirrorSelectView.vue";
 import RescueKitView from "@/views/RescueKitView.vue";
 import PartitionView from "@/views/PartitionView.vue";
 import VariantView from "@/views/VariantView.vue";
@@ -61,6 +62,12 @@ const router = createRouter({
       path: "/mirrors",
       name: "mirrors",
       component: MirrorView,
+      meta: { steps: 0 },
+    },
+    {
+      path: "/mirrors-sel",
+      name: "mirrors-sel",
+      component: MirrorSelectView,
       meta: { steps: 0 },
     },
     {

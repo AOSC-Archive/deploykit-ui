@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import DKBottomActions from "@/components/DKBottomActions.vue";
+import DKBottomRightButtons from "@/components/DKBottomRightButtons.vue";
+</script>
 
 <template>
   <div>
@@ -11,4 +14,9 @@
     </p>
     <p>Thank you for your time and for choosing AOSC OS!</p>
   </div>
+  <DKBottomActions>
+    <DKBottomRightButtons>
+      <button class="button">Finish</button>
+    </DKBottomRightButtons>
+  </DKBottomActions>
 </template>

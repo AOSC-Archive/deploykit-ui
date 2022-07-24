@@ -1,6 +1,7 @@
 <script>
 import slides_data from "@/slides";
 import DKIconButton from "@/components/DKIconButton.vue";
+import DKBottomActions from "@/components/DKBottomActions.vue";
 
 export default {
   data: function () {
@@ -32,7 +33,7 @@ export default {
   beforeUnmount: function () {
     clearInterval(this.timer);
   },
-  components: { DKIconButton },
+  components: { DKIconButton, DKBottomActions },
 };
 </script>
 
@@ -45,14 +46,14 @@ export default {
       </p>
     </article>
   </div>
-  <p style="display: flex; column-gap: 0.5rem">
+  <DKBottomActions>
     <DKIconButton title="Firefox" explain="Web Browser">
       <img src="@/assets/web-browser-symbolic.svg" height="36" />
     </DKIconButton>
     <DKIconButton title="BGM" explain="Mute">
       <img src="@/assets/audio-volume-muted.svg" height="36" />
     </DKIconButton>
-  </p>
+  </DKBottomActions>
 </template>
 
 <style>

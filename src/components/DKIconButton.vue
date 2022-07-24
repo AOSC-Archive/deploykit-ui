@@ -22,6 +22,7 @@ export default {
 <style>
 .icon-container img {
   margin: 0 0.5rem 0 0;
+  height: 2.25rem;
 }
 </style>
 
@@ -35,7 +36,7 @@ export default {
   display: flex;
   line-height: 1.5;
   place-items: flex-start;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   text-align: left;
 }
 </style>

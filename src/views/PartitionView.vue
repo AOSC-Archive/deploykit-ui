@@ -1,5 +1,7 @@
 <script setup>
 import DKIconButton from "@/components/DKIconButton.vue";
+import DKBottomActions from "@/components/DKBottomActions.vue";
+import DKStepButtons from "@/components/DKStepButtons.vue";
 </script>
 
 <script>
@@ -21,7 +23,8 @@ export default {
     <section v-if="!new_disk">
       <p>
         Please select a partition as AOSC OS system partition. If you would like
-        to make changes to your partitions, please select "Open GParted..."
+        to make changes to your partitions, please select the "GParted" button
+        below.
       </p>
       <section></section>
     </section>
@@ -42,16 +45,14 @@ export default {
       </ul>
       <p>
         If you would like to partition the storage device yourself, please press
-        "Open GParted..." below.
-      </p>
-    </section>
-
-    <section>
-      <p style="display: flex">
-        <DKIconButton title="GParted" explain="Manange Partitions">
-          <img src="@/assets/drive-harddisk-root-symbolic.svg" height="36" />
-        </DKIconButton>
+        the "GParted" button below.
       </p>
     </section>
   </div>
+  <DKBottomActions>
+    <DKIconButton title="GParted" explain="Manange Partitions">
+      <img src="@/assets/drive-harddisk-root-symbolic.svg" height="36" />
+    </DKIconButton>
+    <DKStepButtons />
+  </DKBottomActions>
 </template>

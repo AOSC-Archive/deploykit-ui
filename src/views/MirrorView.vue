@@ -8,7 +8,9 @@
         Installer will now detect the fastest mirror to download AOSC OS from.
         If you would like to manual select a mirror, press "Customize..." below.
       </p>
-      <button class="button">Customize...</button>
+      <button class="button" @click="$router.push('/mirrors-sel')">
+        Customize...
+      </button>
     </section>
   </div>
 </template>

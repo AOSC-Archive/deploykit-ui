@@ -35,6 +35,14 @@ export default {
           </select>
         </p>
         <div></div>
+        <p v-if="type === 0" style="font-size: 0.9rem">
+          <i>Your system has 48GiB of RAM.</i>
+          <br />
+          <i
+            >Installer will create a swapfile of {{ rec_size }}GiB on your AOSC
+            OS system partition.</i
+          >
+        </p>
         <p class="error-msg" v-if="type === 2">
           <i>
             Running AOSC OS without a swapfile may cause instability at high
@@ -73,8 +81,8 @@ export default {
           GiB
         </span>
       </div>
-      <br />
       <p v-if="type === 1" style="font-size: 0.9rem; margin-left: 30%">
+        <br />
         <i>Your system has 48GiB of RAM.</i>
         <br />
         <i
