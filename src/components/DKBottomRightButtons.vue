@@ -10,8 +10,6 @@
   display: flex;
   align-items: flex-end;
   column-gap: 0.5rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  margin-top: 2rem;
 }
 </style>

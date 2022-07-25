@@ -2,15 +2,11 @@
 export default {
   props: {
     options: Array,
-  },
-  data: function () {
-    return {
-      selected: null,
-    };
+    selected: Number,
   },
   methods: {
     select: function (index) {
-      this.selected = index;
+      this.$emit("update:selected", index);
     },
   },
 };
@@ -66,12 +62,7 @@ button[disabled].button:hover {
 .button-box {
   text-align: left;
   margin: 0.5rem 0.5rem 0 0.5rem;
-}
-
-button:disabled,
-button[disabled] {
-  color: #8f8f8f;
-  cursor: not-allowed;
+  width: 100%;
 }
 
 .error-msg {

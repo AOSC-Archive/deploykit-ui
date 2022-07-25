@@ -2,6 +2,27 @@
 import DKBottomSteps from "../components/DKBottomSteps.vue";
 </script>
 
+<script>
+export default {
+  data: function () {
+    return {
+      name: "",
+      err_msg: "",
+    };
+  },
+  methods: {
+    validate: function () {
+      if (!/^[a-z0-9-]+$/.test(this.name)) {
+        this.err_msg = "Hostname contains invalid characters.";
+        return false;
+      }
+      this.err_msg = "";
+      return true;
+    },
+  },
+};
+</script>
+
 <template>
   <div>
     <h1>Hostname</h1>
@@ -11,16 +32,10 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
       numbers 0-9, and dashes ("-").
     </p>
     <form class="form-layout">
-      <div>Hostname</div>
-      <input />
+      <label for="hostname">Hostname</label>
+      <input id="hostname" name="hostname" v-model="name" />
     </form>
-    <p class="error-msg"></p>
+    <p class="error-msg">{{ err_msg }}</p>
   </div>
-  <DKBottomSteps />
+  <DKBottomSteps :guard="validate" :can_proceed="name != ''" />
 </template>
-
-<style scoped>
-.error-msg {
-  color: var(--dk-accent);
-}
-</style>

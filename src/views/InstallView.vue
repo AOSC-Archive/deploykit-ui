@@ -1,12 +1,15 @@
 <script>
 import slides_data from "@/slides";
-import DKIconButton from "@/components/DKIconButton.vue";
+import DKStripButton from "@/components/DKStripButton.vue";
 import DKBottomActions from "@/components/DKBottomActions.vue";
 
 export default {
   data: function () {
     return {
-      current_slide: {},
+      current_slide: {
+        title: "Loading ...",
+        body: "",
+      },
       index: 0,
       timer: null,
       slides: slides_data,
@@ -27,18 +30,21 @@ export default {
     },
   },
   mounted: function () {
-    this.next_slide();
+    this.current_slide = {
+      title: this.slides[0].title,
+      paras: this.slides[0].body.split("\n"),
+    };
     this.timer = setInterval(this.next_slide, 6000);
   },
   beforeUnmount: function () {
     clearInterval(this.timer);
   },
-  components: { DKIconButton, DKBottomActions },
+  components: { DKStripButton, DKBottomActions },
 };
 </script>
 
 <template>
-  <div :class="'slide-show' + (hide ? ' hidden' : '')">
+  <div :class="'slide-show' + (hide ? ' hidden' : '')" @click="next_slide">
     <h1>{{ current_slide.title }}</h1>
     <article>
       <p v-for="(para, index) in current_slide.paras" v-bind:key="index">
@@ -47,12 +53,12 @@ export default {
     </article>
   </div>
   <DKBottomActions>
-    <DKIconButton title="Firefox" explain="Web Browser">
+    <DKStripButton omit_bline="1" show_arrow="1" text="Launch Firefox">
       <img src="@/assets/web-browser-symbolic.svg" height="36" />
-    </DKIconButton>
-    <DKIconButton title="BGM" explain="Mute">
+    </DKStripButton>
+    <DKStripButton text="Mute BGM">
       <img src="@/assets/audio-volume-muted.svg" height="36" />
-    </DKIconButton>
+    </DKStripButton>
   </DKBottomActions>
 </template>
 

@@ -16,6 +16,16 @@ const options = [
 ];
 </script>
 
+<script>
+export default {
+  data: function () {
+    return {
+      selected: null,
+    };
+  },
+};
+</script>
+
 <template>
   <div>
     <h1>RescueKit</h1>
@@ -25,10 +35,14 @@ const options = [
       install RescueKit?
     </p>
     <section>
-      <DKListSelect :options="options" />
+      <DKListSelect
+        :options="options"
+        :selected="selected"
+        @update:selected="(v) => (selected = v)"
+      />
     </section>
   </div>
-  <DKBottomSteps />
+  <DKBottomSteps :can_proceed="selected != null" />
 </template>
 
 <style scoped>

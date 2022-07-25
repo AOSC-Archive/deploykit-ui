@@ -1,5 +1,5 @@
 <script setup>
-import DKIconButton from "@/components/DKIconButton.vue";
+import DKStripButton from "@/components/DKStripButton.vue";
 import DKBottomActions from "@/components/DKBottomActions.vue";
 import DKStepButtons from "@/components/DKStepButtons.vue";
 </script>
@@ -50,9 +50,9 @@ export default {
     </section>
   </div>
   <DKBottomActions>
-    <DKIconButton title="GParted" explain="Manange Partitions">
-      <img src="@/assets/drive-harddisk-root-symbolic.svg" height="36" />
-    </DKIconButton>
+    <DKStripButton text="Manage partitions with GParted">
+      <img src="@/assets/drive-harddisk-root-symbolic.svg" height="18" />
+    </DKStripButton>
     <DKStepButtons />
   </DKBottomActions>
 </template>

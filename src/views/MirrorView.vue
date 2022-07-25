@@ -17,9 +17,3 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
   </div>
   <DKBottomSteps />
 </template>
-
-<style scoped>
-.error-msg {
-  color: var(--dk-accent);
-}
-</style>

@@ -17,6 +17,9 @@ export default {
           data: "zh_CN",
         },
       ],
+      selected_locale: null,
+      rtc_tz: 0,
+      timezone: null,
     };
   },
 };
@@ -31,7 +34,10 @@ export default {
     </p>
     <form class="form-layout">
       <label for="locale">Locale</label>
-      <DKFilterSelect :options="locales" />
+      <DKFilterSelect
+        :options="locales"
+        @update:selected="(v) => (selected_locale = v)"
+      />
     </form>
     <p>
       Finally, please select your local time zone. UTC system time is the
@@ -43,11 +49,11 @@ export default {
     <form class="form-layout">
       <label for="timezone">Timezone</label>
       <p class="select">
-        <select name="timezone"></select>
+        <select id="timezone" name="timezone" v-model="timezone"></select>
       </p>
       <label for="rtc">RTC Timezone</label>
       <p class="select">
-        <select name="rtc">
+        <select id="rtc" name="rtc" v-model="rtc_tz">
           <option value="0">UTC (Recommended)</option>
           <option value="1">Local time (like Windows)</option>
         </select>
@@ -58,10 +64,6 @@ export default {
 </template>
 
 <style scoped>
-.error-msg {
-  color: var(--dk-accent);
-}
-
 input,
 select {
   margin-bottom: 0.5em;

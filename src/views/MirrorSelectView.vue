@@ -20,9 +20,3 @@ import DKStepButtons from "@/components/DKStepButtons.vue";
     <DKStepButtons />
   </DKBottomActions>
 </template>
-
-<style scoped>
-.error-msg {
-  color: var(--dk-accent);
-}
-</style>

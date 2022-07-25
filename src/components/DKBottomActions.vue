@@ -6,8 +6,6 @@
 
 <style scoped>
 .bottom-bar {
-  display: flex;
-  column-gap: 0.5rem;
   position: absolute;
   bottom: 0;
   margin-bottom: 1rem;

@@ -109,3 +109,13 @@ select:focus {
 .button:hover {
   background: #dddddd56;
 }
+
+button:disabled,
+button[disabled] {
+  color: #8f8f8f;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: var(--dk-accent);
+}

@@ -18,13 +18,27 @@ const options = [
 ];
 </script>
 
+<script>
+export default {
+  data: function () {
+    return {
+      selected: null,
+    };
+  },
+};
+</script>
+
 <template>
   <div>
     <h1>Variants</h1>
     <p>Please select from below your desired distribution.</p>
     <section>
-      <DKListSelect :options="options" />
+      <DKListSelect
+        :selected="selected"
+        :options="options"
+        @update:selected="(v) => (selected = v)"
+      />
     </section>
   </div>
-  <DKBottomSteps />
+  <DKBottomSteps :can_proceed="this.selected != null" />
 </template>

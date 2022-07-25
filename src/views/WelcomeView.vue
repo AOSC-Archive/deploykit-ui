@@ -16,5 +16,5 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
       more time on slower hardware.
     </p>
   </div>
-  <DKBottomSteps />
+  <DKBottomSteps no_previous="1" />
 </template>

@@ -52,7 +52,7 @@ export default {
   </div>
   <!-- main content -->
   <div class="main-container">
-    <div>
+    <div style="width: 12rem">
       <div class="wrapper">
         <nav :class="nav_menu_bold(0)">Introduction</nav>
         <nav :class="nav_menu_bold(1)">User Preferences</nav>

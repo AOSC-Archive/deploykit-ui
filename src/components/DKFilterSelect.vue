@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    input_name: String,
+    selected: String,
     options: Array,
   },
   data: function () {
@@ -25,10 +25,9 @@ export default {
   methods: {
     lock_selection: function (index) {
       const selected = this.filtered_options[index];
-      this.locked_in = selected.data;
       this.show_dropdown = false;
       this.user_input = selected.text;
-      // this.emit("update:input_name", selected.data);
+      this.$emit("update:selected", index);
     },
     edit_selection: function () {
       this.show_dropdown = true;
@@ -41,7 +40,7 @@ export default {
   <div class="dropdown-content">
     <div class="select">
       <input
-        :name="input_name"
+        name="search-box"
         type="text"
         v-model="user_input"
         :style="show_dropdown ? '' : 'text-align: center'"
