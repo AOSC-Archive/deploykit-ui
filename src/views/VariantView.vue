@@ -40,5 +40,5 @@ export default {
       />
     </section>
   </div>
-  <DKBottomSteps :can_proceed="this.selected != null" />
+  <DKBottomSteps :can_proceed="selected != null" />
 </template>

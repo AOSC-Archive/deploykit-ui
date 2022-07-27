@@ -2,6 +2,7 @@
 export default {
   props: {
     selected: String,
+    id: String,
     options: Array,
   },
   data: function () {
@@ -42,6 +43,7 @@ export default {
       <input
         name="search-box"
         type="text"
+        :id="id"
         v-model="user_input"
         :style="show_dropdown ? '' : 'text-align: center'"
         placeholder="Start typing to search..."
@@ -57,6 +59,9 @@ export default {
         tabindex="0"
         >{{ opt.text }}</a
       >
+      <span class="placeholder" v-if="filtered_options.length < 1"
+        >No result</span
+      >
     </div>
   </div>
 </template>
@@ -64,6 +69,13 @@ export default {
 <style scoped>
 div.select::after {
   margin-top: -1.2em;
+}
+
+.placeholder {
+  padding: 12px 16px;
+  color: #1f1f1f;
+  line-height: 1;
+  font-style: italic;
 }
 
 .dropdown-content a {
@@ -77,6 +89,7 @@ div.select::after {
 
 .dropdown-content a:hover {
   background: #80a9ff;
+  cursor: pointer;
 }
 
 .dropdown-content input {
@@ -85,6 +98,7 @@ div.select::after {
 
 .dropdown-gutter {
   background-color: #f6f6f6;
+  overflow-y: scroll;
   position: absolute;
   left: 0;
   width: 100%;

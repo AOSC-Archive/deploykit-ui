@@ -1,5 +1,6 @@
 <script setup>
 import DKBottomActions from "@/components/DKBottomActions.vue";
+import DKStripButton from "@/components/DKStripButton.vue";
 </script>
 
 <template>
@@ -17,8 +18,14 @@ import DKBottomActions from "@/components/DKBottomActions.vue";
     </p>
   </div>
   <DKBottomActions>
-    <button class="button" @click="$router.back()">Resume</button>
-    <button class="button">Quit & Save Configuration</button>
-    <button class="button">Quit</button>
+    <DKStripButton omit_bline="1" text="Resume" @click="$router.back()">
+      <img src="@/assets/resume.svg" height="36" />
+    </DKStripButton>
+    <DKStripButton omit_bline="1" text="Save Configuration & Quit">
+      <img src="@/assets/document-save.svg" height="36" />
+    </DKStripButton>
+    <DKStripButton text="Quit">
+      <img src="@/assets/exit-run.svg" height="36" />
+    </DKStripButton>
   </DKBottomActions>
 </template>

@@ -5,6 +5,8 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 <script>
 export default {
+  // TODO: add locales and timezones here
+  props: {},
   data: function () {
     return {
       locales: [
@@ -15,6 +17,16 @@ export default {
         {
           text: "中文",
           data: "zh_CN",
+        },
+      ],
+      timezones: [
+        {
+          text: "UTC (+0:00)",
+          data: "UTC",
+        },
+        {
+          text: "Asia/Shanghai (+8:00)",
+          data: "Asia/Shanghai",
         },
       ],
       selected_locale: null,
@@ -36,6 +48,7 @@ export default {
       <label for="locale">Locale</label>
       <DKFilterSelect
         :options="locales"
+        id="locale"
         @update:selected="(v) => (selected_locale = v)"
       />
     </form>
@@ -48,8 +61,12 @@ export default {
     <p class="error-msg"></p>
     <form class="form-layout">
       <label for="timezone">Timezone</label>
-      <p class="select">
-        <select id="timezone" name="timezone" v-model="timezone"></select>
+      <p>
+        <DKFilterSelect
+          :options="timezones"
+          id="timezone"
+          @update:selected="(v) => (timezone = v)"
+        />
       </p>
       <label for="rtc">RTC Timezone</label>
       <p class="select">
@@ -60,7 +77,7 @@ export default {
       </p>
     </form>
   </div>
-  <DKBottomSteps />
+  <DKBottomSteps :can_proceed="selected_locale != null && timezone != null" />
 </template>
 
 <style scoped>

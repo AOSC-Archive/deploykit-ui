@@ -16,14 +16,14 @@ export default {
         <span>{{ text }}</span>
       </div>
     </div>
-    <img src="@/assets/open-fluent-icon.svg" height="16" v-if="show_arrow" />
+    <img src="@/assets/open-fluent-icon.svg" height="14" v-if="show_arrow" />
   </button>
 </template>
 
 <style>
 div.icon-container img {
-  margin: 0 0.5rem 0 0;
-  height: 1.75rem;
+  margin: 0.2rem 0.5rem 0.2rem 0.2rem;
+  height: 1.1rem;
 }
 </style>
 

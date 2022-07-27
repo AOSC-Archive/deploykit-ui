@@ -25,7 +25,7 @@ export default {
     <button class="button" @click="$router.back()" :disabled="no_previous">
       Previous
     </button>
-    <button class="button" @click="proceed" :disabled="can_proceed === false">
+    <button class="button" @click="proceed" :disabled="!can_proceed">
       Next
     </button>
   </DKBottomRightButtons>
