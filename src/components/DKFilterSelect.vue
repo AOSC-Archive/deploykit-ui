@@ -46,7 +46,7 @@ export default {
         :id="id"
         v-model="user_input"
         :style="show_dropdown ? '' : 'text-align: center'"
-        placeholder="Start typing to search..."
+        :placeholder="show_dropdown ? 'Start typing to search...' : 'Select...'"
         @focus="edit_selection"
       />
     </div>

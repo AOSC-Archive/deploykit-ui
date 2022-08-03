@@ -9,6 +9,7 @@ export default {
     return {
       page_number: 0,
       progress: 10,
+      config: {},
     };
   },
   methods: {
