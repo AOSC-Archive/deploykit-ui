@@ -1,16 +1,18 @@
 <script>
 export default {
   props: {
-    selected: String,
+    default: Number,
     id: String,
     options: Array,
   },
   data: function () {
     return {
       user_input: "",
-      locked_in: null,
       show_dropdown: false,
     };
+  },
+  mounted: function () {
+    if (this.default != null) this.lock_selection(this.default);
   },
   computed: {
     filtered_options: function () {

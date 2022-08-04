@@ -4,9 +4,10 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 <script>
 export default {
+  inject: ["config"],
   data: function () {
     return {
-      name: "",
+      name: this.config.hostname || "",
       err_msg: "",
     };
   },
@@ -37,5 +38,9 @@ export default {
     </form>
     <p class="error-msg">{{ err_msg }}</p>
   </div>
-  <DKBottomSteps :guard="validate" :can_proceed="name != ''" />
+  <DKBottomSteps
+    :trigger="() => (config.hostname = name)"
+    :guard="validate"
+    :can_proceed="name != ''"
+  />
 </template>

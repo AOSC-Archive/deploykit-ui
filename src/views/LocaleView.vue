@@ -7,6 +7,7 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 export default {
   // TODO: add locales and timezones here
   props: {},
+  inject: ["config"],
   data: function () {
     return {
       locales: [
@@ -29,10 +30,17 @@ export default {
           data: "Asia/Shanghai",
         },
       ],
-      selected_locale: null,
-      rtc_tz: 0,
-      timezone: null,
+      selected_locale: this.config.locale,
+      rtc_tz: `${!this.config.rtc_utc | 0}`,
+      timezone: this.config.timezone,
     };
+  },
+  methods: {
+    save_config: function () {
+      this.config.rtc_utc = this.rtc_tz == "0";
+      this.config.timezone = this.timezone;
+      this.config.locale = this.selected_locale;
+    },
   },
 };
 </script>
@@ -47,6 +55,7 @@ export default {
     <form class="form-layout">
       <label for="locale">Locale</label>
       <DKFilterSelect
+        :default="selected_locale"
         :options="locales"
         id="locale"
         @update:selected="(v) => (selected_locale = v)"
@@ -63,6 +72,7 @@ export default {
       <label for="timezone">Timezone</label>
       <p>
         <DKFilterSelect
+          :default="timezone"
           :options="timezones"
           id="timezone"
           @update:selected="(v) => (timezone = v)"
@@ -77,7 +87,10 @@ export default {
       </p>
     </form>
   </div>
-  <DKBottomSteps :can_proceed="selected_locale != null && timezone != null" />
+  <DKBottomSteps
+    :trigger="save_config"
+    :can_proceed="selected_locale != null && timezone != null"
+  />
 </template>
 
 <style scoped>

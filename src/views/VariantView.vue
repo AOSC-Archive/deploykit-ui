@@ -20,9 +20,10 @@ const options = [
 
 <script>
 export default {
+  inject: ["config"],
   data: function () {
     return {
-      selected: null,
+      selected: this.config.variant,
     };
   },
 };
@@ -40,5 +41,8 @@ export default {
       />
     </section>
   </div>
-  <DKBottomSteps :can_proceed="selected != null" />
+  <DKBottomSteps
+    :trigger="() => (config.variant = selected)"
+    :can_proceed="selected != null"
+  />
 </template>

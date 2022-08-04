@@ -11,7 +11,7 @@ export default {
   data: function () {
     return {
       type: 0,
-      size: 0,
+      size: 16,
       rec_size: 16,
     };
   },

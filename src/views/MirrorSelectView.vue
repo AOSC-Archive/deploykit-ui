@@ -13,7 +13,9 @@ import DKStripButton from "@/components/DKStripButton.vue";
         make selection based on the mirror's location or by benchmarking them
         using the "Benchmark..." button.
       </p>
-      <div></div>
+      <div>
+        <!-- selection menu -->
+      </div>
     </section>
   </div>
   <DKBottomActions>

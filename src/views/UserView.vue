@@ -4,9 +4,10 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 <script>
 export default {
+  inject: ["config"],
   data: function () {
     return {
-      user: "",
+      user: this.config.user || "",
       pwd: "",
       pwd2: "",
       error_msg: "",
@@ -39,6 +40,10 @@ export default {
       this.error_msg = "";
       return true;
     },
+    save_config: function () {
+      this.config.user = this.user;
+      this.config.pwd = this.pwd;
+    },
   },
 };
 </script>
@@ -62,7 +67,11 @@ export default {
     </form>
     <p class="error-msg">{{ error_msg }}</p>
   </div>
-  <DKBottomSteps :guard="validate" :can_proceed="can_proceed" />
+  <DKBottomSteps
+    :trigger="save_config"
+    :guard="validate"
+    :can_proceed="can_proceed"
+  />
 </template>
 
 <style scoped>

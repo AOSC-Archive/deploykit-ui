@@ -5,6 +5,7 @@ import DKBottomRightButtons from "./DKBottomRightButtons.vue";
 <script>
 export default {
   props: {
+    trigger: Function,
     guard: Function,
     can_proceed: { type: Boolean, default: true },
     no_previous: Boolean,
@@ -14,6 +15,7 @@ export default {
       if (this.guard) {
         if (!this.guard(this)) return;
       }
+      if (this.trigger) this.trigger(this);
       this.$router.push(this.$router.currentRoute.value.meta.next);
     },
   },

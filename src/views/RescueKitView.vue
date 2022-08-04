@@ -18,9 +18,10 @@ const options = [
 
 <script>
 export default {
+  inject: ["config"],
   data: function () {
     return {
-      selected: null,
+      selected: !this.config.rescue | 0,
     };
   },
 };
@@ -42,7 +43,10 @@ export default {
       />
     </section>
   </div>
-  <DKBottomSteps :can_proceed="selected != null" />
+  <DKBottomSteps
+    :trigger="() => (config.rescue = !selected)"
+    :can_proceed="selected != null"
+  />
 </template>
 
 <style scoped>

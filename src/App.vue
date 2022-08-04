@@ -8,7 +8,7 @@ export default {
   data: function () {
     return {
       page_number: 0,
-      progress: 10,
+      progress: 0,
       config: {},
     };
   },
@@ -27,6 +27,11 @@ export default {
       my.page_number = to.meta.steps;
       my.progress = my.page_number * 25;
     });
+  },
+  provide: function () {
+    return {
+      config: {},
+    };
   },
 };
 </script>
