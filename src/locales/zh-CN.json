@@ -12,7 +12,7 @@
         "p1": "Please select from below your desired distribution."
     },
     "error": {
-        "title": "Error",
+        "title": "错误",
         "p1": "Installer has encountered an error."
     },
     "install": {
@@ -131,7 +131,7 @@
         "nav-2": "Installation",
         "nav-3": "Final Steps",
         "eta-0": "{time_lo} - {time_hi} minutes remaining...",
-        "eta-1": "Almost finished... | Nearly finished... | {time} minutes remaining...",
+        "eta-1": "{time} minutes remaining...",
         "eta-2": "Almost finished..."
     },
     "slides": {
