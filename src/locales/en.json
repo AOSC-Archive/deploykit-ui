@@ -18,7 +18,15 @@
     "install": {
         "firefox": "Launch Firefox",
         "bgm-off": "Mute BGM",
-        "bgm-on": "Unmute BGM"
+        "bgm-on": "Unmute BGM",
+        "i1": "Formatting partitions...",
+        "i2": "Downloading system release...",
+        "i3": "Verifying system release...",
+        "i4": "Unpacking system release...",
+        "i5": "Generating initramfs (initial RAM filesystem)...",
+        "i6": "Installing and configuring GRUB bootloader...",
+        "i7": "Finalizing installation...",
+        "status": "Step {curr}/{total}: {msg} ({perc}%)"
     },
     "host": {
         "title": "Hostname",
@@ -154,6 +162,7 @@
     "select": "Select...",
     "search": "Start typing to search...",
     "empty": "No result",
+    "sys-title": "AOSC OS Installer",
     "error1": "Internal Error: Inter-process communication was not successful: {msg}.",
     "error2": "Your system does not have the minimum required disk space available. Required: {r_size}, found: {f_size}."
 }

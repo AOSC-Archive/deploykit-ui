@@ -82,9 +82,14 @@ export default {
       class="progress-bar"
     ></progress>
     <span class="info-box" v-if="page_number > 1 && page_number < 4"
-      ><i
-        >Step 5/7: Generating initramfs (initial RAM filesystem)... (91%)</i
-      ></span
+      ><i>{{
+        $t("install.status", {
+          curr: 5,
+          total: 7,
+          msg: $t("install.i5"),
+          perc: 97,
+        })
+      }}</i></span
     >
     <label for="progressbar" class="eta-box">{{
       $t("d.eta-0", { time_lo: 10, time_hi: 20 })
