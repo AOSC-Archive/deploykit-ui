@@ -91,7 +91,7 @@ select:focus {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  font-family: "Source Sans 3";
+  font-family: "Source Sans 3", "Noto Sans", sans;
 
   align-items: center;
   display: flex;

@@ -1,15 +1,18 @@
 <script setup>
 import { RouterView } from "vue-router";
 import DKLogo from "@/components/DKLogo.vue";
+import LangSelect from "@/views/LangSelect.vue";
 </script>
 
 <script>
 export default {
+  inject: ["switchLocale"],
   data: function () {
     return {
       page_number: 0,
       progress: 0,
       config: {},
+      lang_selected: false,
     };
   },
   methods: {
@@ -18,6 +21,19 @@ export default {
     },
     nav_menu_bold: function (step) {
       return this.page_number >= step ? "active" : "";
+    },
+    on_lang_selected: function (id) {
+      console.info(`Language: ${id}`);
+      if (id == "en") {
+        // default locale is always loaded before-hand
+        this.lang_selected = true;
+        return;
+      }
+      // lazy load the translation strings
+      const my = this;
+      this.switchLocale(id).then(function () {
+        my.lang_selected = true;
+      });
     },
   },
   mounted: function () {
@@ -56,24 +72,26 @@ export default {
       <DKLogo />
     </header>
   </div>
+  <!-- language select overlay -->
+  <LangSelect v-if="!lang_selected" @update:lang="on_lang_selected" />
   <!-- main content -->
   <div class="main-container">
     <div style="width: 12rem">
-      <div class="wrapper">
+      <div class="wrapper" v-if="lang_selected">
         <nav :class="nav_menu_bold(0)">{{ $t("d.nav-0") }}</nav>
         <nav :class="nav_menu_bold(1)">{{ $t("d.nav-1") }}</nav>
         <nav :class="nav_menu_bold(2)">{{ $t("d.nav-2") }}</nav>
         <nav :class="nav_menu_bold(3)">{{ $t("d.nav-3") }}</nav>
       </div>
     </div>
-    <main>
+    <main v-if="lang_selected">
       <div style="height: 100%; overflow-y: auto; margin-right: 3rem">
         <RouterView />
       </div>
     </main>
   </div>
   <!-- status bar -->
-  <div class="status-bar">
+  <div class="status-bar" v-if="lang_selected">
     <progress
       id="progressbar"
       :aria-label="$t('d.sr-progress')"
