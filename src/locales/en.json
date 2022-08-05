@@ -1,4 +1,5 @@
 {
+    "lang": "English (United States)",
     "welcome": {
         "title": "Welcome",
         "p1": "In the following pages, Installer will guide you through...",
@@ -72,6 +73,7 @@
     },
     "part": {
         "title": "Partitioning",
+        "r1": "Analyzing your system...",
         "p1": "Please select a partition as AOSC OS system partition. If you would like to make changes to your partitions, please select the \"GParted\" button below.",
         "p2": "It seems like you have an empty or new storage device. Installer can help you create a standard partition scheme based on your storage configuration, as you press \"Next,\" installer will partition your storage device based on the following specifications.",
         "p3": "If you would like to partition the storage device yourself, please press the \"Manage partitions with GParted\" button below.",
@@ -84,7 +86,8 @@
         "p1": "Installer will now detect the fastest mirror to download AOSC OS from. If you would like to manual select a mirror, press \"Customize...\" below.",
         "b1": "Customize...",
         "p2": "Below are a list of available mirrors to download AOSC OS from. You may make selection based on the mirror's location or by benchmarking them using the \"Benchmark...\" button.",
-        "b2": "Benchmark..."
+        "b2": "Benchmark...",
+        "k1": "Running benchmarks..."
     },
     "user": {
         "title": "User Account",
