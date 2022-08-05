@@ -5,26 +5,24 @@ import DKStripButton from "@/components/DKStripButton.vue";
 
 <template>
   <div>
-    <h1>Abort?</h1>
-    <p>
-      Do you really want to abort installation? Doing so will result in an
-      <strong>incomplete or corrupted</strong> AOSC OS installation in the
-      target partition you specified.
-    </p>
-    <p>
-      Would you like to save your current installation configuration? When you
-      return, by selecting the original installation partition, installer will
-      restart based on your previous configuration.
-    </p>
+    <h1>{{ $t("abort.title") }}</h1>
+    <i18n-t keypath="abort.p1" tag="p">
+      <strong>{{ $t("abort.p1-1") }}</strong>
+    </i18n-t>
+    <p>{{ $t("abort.p2") }}</p>
   </div>
   <DKBottomActions>
-    <DKStripButton omit_bline="1" text="Resume" @click="$router.back()">
+    <DKStripButton
+      omit_bline="1"
+      :text="$t('abort.resume')"
+      @click="$router.back()"
+    >
       <img src="@/assets/resume.svg" height="36" />
     </DKStripButton>
-    <DKStripButton omit_bline="1" text="Save Configuration & Quit">
+    <DKStripButton omit_bline="1" :text="$t('abort.save')">
       <img src="@/assets/document-save.svg" height="36" />
     </DKStripButton>
-    <DKStripButton text="Quit">
+    <DKStripButton :text="$t('abort.quit')">
       <img src="@/assets/exit-run.svg" height="36" />
     </DKStripButton>
   </DKBottomActions>

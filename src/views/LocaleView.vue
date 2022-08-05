@@ -47,13 +47,10 @@ export default {
 
 <template>
   <div>
-    <h1>Locale & Time</h1>
-    <p>
-      Please select your preferred locale. Your locale setting will affect your
-      system's display language and other preferences.
-    </p>
+    <h1>{{ $t("locale.title") }}</h1>
+    <p>{{ $t("locale.p1") }}</p>
     <form class="form-layout">
-      <label for="locale">Locale</label>
+      <label for="locale">{{ $t("locale.l1") }}</label>
       <DKFilterSelect
         :default="selected_locale"
         :options="locales"
@@ -61,15 +58,10 @@ export default {
         @update:selected="(v) => (selected_locale = v)"
       />
     </form>
-    <p>
-      Finally, please select your local time zone. UTC system time is the
-      default setting for Linux systems, but may result intime discrepancy with
-      your other operating systems like Windows. Setting local time as system
-      time will prevent this.
-    </p>
+    <p>{{ $t("locale.p2") }}</p>
     <p class="error-msg"></p>
     <form class="form-layout">
-      <label for="timezone">Timezone</label>
+      <label for="timezone">{{ $t("locale.l2") }}</label>
       <p>
         <DKFilterSelect
           :default="timezone"
@@ -78,11 +70,11 @@ export default {
           @update:selected="(v) => (timezone = v)"
         />
       </p>
-      <label for="rtc">RTC Timezone</label>
+      <label for="rtc">{{ $t("locale.l3") }}</label>
       <p class="select">
         <select id="rtc" name="rtc" v-model="rtc_tz">
-          <option value="0">UTC (Recommended)</option>
-          <option value="1">Local time (like Windows)</option>
+          <option value="0">{{ $t("locale.o1") }}</option>
+          <option value="1">{{ $t("locale.o2") }}</option>
         </select>
       </p>
     </form>

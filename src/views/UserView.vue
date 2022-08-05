@@ -22,19 +22,19 @@ export default {
     validate: function () {
       const username = this.user.trim();
       if (!username) {
-        this.error_msg = "Username can't be empty.";
+        this.error_msg = this.$t("user.bad1");
         return false;
       }
       if (this.pwd.length < 1 || this.pwd2.length < 1) {
-        this.error_msg = "Password can't be empty.";
+        this.error_msg = this.$t("user.bad2");
         return false;
       }
       if (this.pwd !== this.pwd2) {
-        this.error_msg = "Passwords do not match.";
+        this.error_msg = this.$t("user.bad3");
         return false;
       }
       if (!/^[a-z][a-z0-9-]*$/.test(username)) {
-        this.error_msg = "Invalid username.";
+        this.error_msg = this.$t("user.bad4");
         return false;
       }
       this.error_msg = "";
@@ -50,19 +50,14 @@ export default {
 
 <template>
   <div>
-    <h1>User Account</h1>
-    <p>
-      Please enter and confirm your desired username and password. Please note
-      that your username must start with a lower-cased alphabetical letter
-      (a-z), and contain only lower-cased letters a-z, numbers 0-0, and dash
-      ("-").
-    </p>
+    <h1>{{ $t("user.title") }}</h1>
+    <p>{{ $t("user.p1") }}</p>
     <form class="form-layout">
-      <label for="username">Username</label>
+      <label for="username">{{ $t("user.l1") }}</label>
       <input id="username" name="username" type="text" v-model="user" />
-      <label for="pwd">Password</label>
+      <label for="pwd">{{ $t("user.l2") }}</label>
       <input id="pwd" name="pwd" type="password" v-model="pwd" />
-      <label for="pwd2">Confirm Password</label>
+      <label for="pwd2">{{ $t("user.l3") }}</label>
       <input id="pwd2" name="pwd2" type="password" v-model="pwd2" />
     </form>
     <p class="error-msg">{{ error_msg }}</p>

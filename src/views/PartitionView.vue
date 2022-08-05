@@ -24,38 +24,29 @@ export default {
 
 <template>
   <div>
-    <h1>Partitioning</h1>
+    <h1>{{ $t("part.title") }}</h1>
     <section v-if="!new_disk">
-      <p>
-        Please select a partition as AOSC OS system partition. If you would like
-        to make changes to your partitions, please select the "GParted" button
-        below.
-      </p>
+      <p>{{ $t("part.p1") }}</p>
       <section></section>
     </section>
 
     <section v-if="new_disk">
-      <p>
-        It seems like you have an empty or new storage device. Installer can
-        help you create a standard partition schemebased on your storage
-        configuration, as you press "Next," installer will partition your
-        storage device based on thefollowing specifications.
-      </p>
+      <p>{{ $t("part.p2") }}</p>
       <ul>
-        <li>Create a <strong>512MiB</strong> EFI System Partition.</li>
-        <li>Create a <strong>127.5GiB</strong> AOSC OS System Partition.</li>
+        <i18n-t keypath="part.l1" tag="li">
+          <strong>128MiB</strong>
+        </i18n-t>
+        <i18n-t keypath="part.l2" tag="li">
+          <strong>20GiB</strong>
+        </i18n-t>
       </ul>
       <p>
-        If you would like to partition the storage device yourself, please press
-        the "GParted" button below.
+        {{ $t("part.p3") }}
       </p>
     </section>
   </div>
   <DKBottomActions>
-    <DKStripButton
-      @click="launch_gparted"
-      text="Manage partitions with GParted"
-    >
+    <DKStripButton @click="launch_gparted" :text="$t('part.b1')">
       <img src="@/assets/drive-harddisk-root-symbolic.svg" height="18" />
     </DKStripButton>
     <DKStepButtons />

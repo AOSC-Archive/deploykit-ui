@@ -4,14 +4,11 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 <template>
   <div>
-    <h1>Download Source</h1>
+    <h1>{{ $t("mirror.title") }}</h1>
     <section>
-      <p>
-        Installer will now detect the fastest mirror to download AOSC OS from.
-        If you would like to manual select a mirror, press "Customize..." below.
-      </p>
+      <p>{{ $t("mirror.p1") }}</p>
       <button class="button" @click="$router.push('/mirrors-sel')">
-        Customize...
+        {{ $t("mirror.b1") }}
       </button>
     </section>
   </div>

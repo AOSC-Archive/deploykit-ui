@@ -15,18 +15,14 @@ export default {
 
 <template>
   <div>
-    <h1>And... Done!</h1>
-    <p>Installer has successfully installed AOSC OS on your device!</p>
-    <p>
-      As you click on "Finish," Installer will restart your device and AOSC OS
-      will take it from here. Please eject or unplug your installation media
-      when prompted to do so.
-    </p>
-    <p>Thank you for your time and for choosing AOSC OS!</p>
+    <h1>{{ $t("finish.title") }}</h1>
+    <p>{{ $t("finish.p1") }}</p>
+    <p>{{ $t("finish.p2") }}</p>
+    <p>{{ $t("finish.p3") }}</p>
   </div>
   <DKBottomActions>
     <DKBottomRightButtons>
-      <button class="button" @click="finish">Finish</button>
+      <button class="button" @click="finish">{{ $t("finish.finish") }}</button>
     </DKBottomRightButtons>
   </DKBottomActions>
 </template>

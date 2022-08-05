@@ -4,17 +4,14 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 
 <template>
   <div>
-    <h1>Welcome</h1>
-    <p>In the following pages, Installer will guide you through...</p>
+    <h1>{{ $t("welcome.title") }}</h1>
+    <p>{{ $t("welcome.p1") }}</p>
     <ul>
-      <li>Variant selection</li>
-      <li>Disk partitioning</li>
-      <li>System configuration</li>
+      <li>{{ $t("welcome.l1") }}</li>
+      <li>{{ $t("welcome.l2") }}</li>
+      <li>{{ $t("welcome.l3") }}</li>
     </ul>
-    <p>
-      The installation process should only take a few minutes, but will require
-      more time on slower hardware.
-    </p>
+    <p>{{ $t("welcome.p2") }}</p>
   </div>
   <DKBottomSteps no_previous="1" />
 </template>

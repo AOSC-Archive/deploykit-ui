@@ -24,7 +24,7 @@ export default {
   methods: {
     validate: function () {
       if (!/^[a-z0-9-]+$/.test(this.name)) {
-        this.err_msg = "Hostname contains invalid characters.";
+        this.err_msg = this.$t("host.bad");
         return false;
       }
       this.err_msg = "";
@@ -36,14 +36,10 @@ export default {
 
 <template>
   <div>
-    <h1>Hostname</h1>
-    <p>
-      Please input your desired hostname. This is otherwise known as a device
-      name used for identification. Your hostname may only consist letters a-z,
-      numbers 0-9, and dashes ("-").
-    </p>
+    <h1>{{ $t("host.title") }}</h1>
+    <p>{{ $t("host.p1") }}</p>
     <form class="form-layout">
-      <label for="hostname">Hostname</label>
+      <label for="hostname">{{ $t("host.title") }}</label>
       <input id="hostname" name="hostname" v-model="name" />
     </form>
     <p class="error-msg">{{ err_msg }}</p>

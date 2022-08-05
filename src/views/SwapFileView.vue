@@ -11,6 +11,7 @@ export default {
   data: function () {
     return {
       type: 0,
+      ram_size: 16,
       size: 16,
       rec_size: 16,
     };
@@ -20,37 +21,28 @@ export default {
 
 <template>
   <div>
-    <h1>Swapfile</h1>
+    <h1>{{ $t("swap.title") }}</h1>
     <p>
-      Would you like to create a swapfile? A swapfile could help when your
-      system is under high memory load by offloading some of your program data
-      to your storage device.
+      {{ $t("swap.p1") }}
     </p>
     <form>
       <section class="form-layout">
-        <label for="swap">Swapfile</label>
+        <label for="swap">{{ $t("swap.title") }}</label>
         <p class="select">
           <select name="swap" v-model="type">
-            <option :value="0">Automatic</option>
-            <option :value="1">Custom</option>
-            <option :value="2">Disabled</option>
+            <option :value="0">{{ $t("swap.o1") }}</option>
+            <option :value="1">{{ $t("swap.o2") }}</option>
+            <option :value="2">{{ $t("swap.o3") }}</option>
           </select>
         </p>
         <div></div>
         <p v-if="type === 0" style="font-size: 0.9rem">
-          <i>Your system has 48GiB of RAM.</i>
+          <i>{{ $t("swap.l1", { size: ram_size }) }}</i>
           <br />
-          <i
-            >Installer will create a swapfile of {{ rec_size }}GiB on your AOSC
-            OS system partition.</i
-          >
+          <i>{{ $t("swap.l2", { size: rec_size }) }}</i>
         </p>
         <p class="error-msg" v-if="type === 2">
-          <i>
-            Running AOSC OS without a swapfile may cause instability at high
-            memory load, resulting in possible application crashes and data
-            loss!
-          </i>
+          <i>{{ $t("swap.w1") }}</i>
         </p>
       </section>
       <br />
@@ -85,18 +77,12 @@ export default {
       </div>
       <p v-if="type === 1" style="font-size: 0.9rem; margin-left: 30%">
         <br />
-        <i>Your system has 48GiB of RAM.</i>
+        <i>{{ $t("swap.l1", { size: ram_size }) }}</i>
         <br />
-        <i
-          >Installer recommends that you create a swapfile of {{ rec_size }}GiB
-          in size.</i
-        >
+        <i>{{ $t("swap.l3", { size: rec_size }) }}</i>
       </p>
       <p class="error-msg" v-if="type === 1 && size == 0">
-        <i>
-          Running AOSC OS without a swapfile may cause instability at high
-          memory load, resulting in possible application crashes and data loss!
-        </i>
+        <i>{{ $t("swap.w1") }}</i>
       </p>
     </form>
   </div>

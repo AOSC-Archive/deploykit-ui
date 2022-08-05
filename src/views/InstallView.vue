@@ -1,5 +1,4 @@
 <script>
-import slides_data from "@/slides";
 import DKStripButton from "@/components/DKStripButton.vue";
 import DKBottomActions from "@/components/DKBottomActions.vue";
 
@@ -7,12 +6,20 @@ export default {
   data: function () {
     return {
       current_slide: {
-        title: "Loading ...",
+        title: this.$t("loading"),
         body: "",
       },
       index: 0,
       timer: null,
-      slides: slides_data,
+      slides: [
+        { title: this.$t("slides.t1"), body: this.$t("slides.p1") },
+        { title: this.$t("slides.t2"), body: this.$t("slides.p2") },
+        { title: this.$t("slides.t3"), body: this.$t("slides.p3") },
+        { title: this.$t("slides.t4"), body: this.$t("slides.p4") },
+        { title: this.$t("slides.t5"), body: this.$t("slides.p5") },
+        { title: this.$t("slides.t6"), body: this.$t("slides.p6") },
+        { title: this.$t("slides.t7"), body: this.$t("slides.p7") },
+      ],
       hide: false,
     };
   },
@@ -62,12 +69,12 @@ export default {
     <DKStripButton
       omit_bline="1"
       show_arrow="1"
-      text="Launch Firefox"
+      :text="$t('install.firefox')"
       @click="launch_ff"
     >
       <img src="@/assets/web-browser-symbolic.svg" height="36" />
     </DKStripButton>
-    <DKStripButton text="Mute BGM">
+    <DKStripButton :text="$t('install.bgm-off')">
       <img src="@/assets/audio-volume-muted.svg" height="36" />
     </DKStripButton>
   </DKBottomActions>

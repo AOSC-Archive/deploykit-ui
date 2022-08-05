@@ -38,12 +38,8 @@ export default {
 
 <template>
   <div>
-    <h1>RescueKit</h1>
-    <p>
-      RescueKit is a rescue environment for AOSC OS. RescueKit provides tools
-      for data backup and recovery, reinstallation, and more. Would you like to
-      install RescueKit?
-    </p>
+    <h1>{{ $t("rescue.title") }}</h1>
+    <p>{{ $t("rescue.p1") }}</p>
     <section>
       <DKListSelect
         :options="options"

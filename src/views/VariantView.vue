@@ -31,8 +31,8 @@ export default {
 
 <template>
   <div>
-    <h1>Variants</h1>
-    <p>Please select from below your desired distribution.</p>
+    <h1>{{ $t("variant.title") }}</h1>
+    <p>{{ $t("variant.p1") }}</p>
     <section>
       <DKListSelect
         :selected="selected"

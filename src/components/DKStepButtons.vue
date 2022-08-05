@@ -25,10 +25,10 @@ export default {
 <template>
   <DKBottomRightButtons>
     <button class="button" @click="$router.back()" :disabled="no_previous">
-      Previous
+      {{ $t("previous") }}
     </button>
     <button class="button" @click="proceed" :disabled="!can_proceed">
-      Next
+      {{ $t("next") }}
     </button>
   </DKBottomRightButtons>
 </template>

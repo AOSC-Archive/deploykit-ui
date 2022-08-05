@@ -18,4 +18,9 @@ app.use(router);
 app.use(i18n);
 app.use(ipc);
 
+import(`./locales/en.json`).then((messages) => {
+  i18n.global.setLocaleMessage("en", messages.default);
+});
+i18n.global.locale.value = "en";
+
 app.mount("#app");

@@ -18,46 +18,50 @@ export default {
 
 <template>
   <div>
-    <h1>Pre-Flight Check</h1>
-    <p>Installer will perform the following operations:</p>
+    <h1>{{ $t("confirm.title") }}</h1>
+    <p>{{ $t("confirm.p1") }}</p>
     <ul>
-      <li>
-        <span class="emphasis">/dev/nvme0n1p2</span> will be
-        <span class="emphasis">erased and formatted as ext4</span>.
-      </li>
+      <i18n-t keypath="confirm.l1" tag="li">
+        <template v-slot:path>
+          <span class="emphasis">/dev/nvme0n1p2</span>
+        </template>
+        <template v-slot:explain>
+          <span class="emphasis">{{
+            $t("confirm.l1-1", { format: "ext4" })
+          }}</span>
+        </template>
+      </i18n-t>
       <ul v-if="rescue_size > 0">
         <li>
-          <span class="emphasis"
-            >A {{ rescue_size }}GiB partition will be created for
-            RescueKit.</span
-          >.
+          {{ $t("confirm.l2", { size: `${rescue_size}GiB` }) }}
         </li>
       </ul>
-      <li>
-        AOSC OS <span class="emphasis">Desktop</span> will be downloaded from
-        <span class="emphasis">Fastly CDN</span>.
-      </li>
-      <li>User <span class="emphasis">anan</span> will be created.</li>
-      <li>
-        AOSC OS will use the
-        <span class="emphasis">English (United States)</span> locale.
-      </li>
-      <li>
-        Your timezone will be set to
-        <span class="emphasis">Asia/Shanghai</span>.
-      </li>
+      <i18n-t keypath="confirm.l3" tag="li">
+        <template v-slot:variant>
+          <span class="emphasis">Desktop</span>
+        </template>
+        <template v-slot:mirror>
+          <span class="emphasis">Fastly CDN</span>
+        </template>
+      </i18n-t>
+      <i18n-t keypath="confirm.l4" tag="li">
+        <span class="emphasis">anan</span>
+      </i18n-t>
+      <i18n-t keypath="confirm.l5" tag="li">
+        <span class="emphasis">English (United States)</span>
+      </i18n-t>
+      <i18n-t keypath="confirm.l6" tag="li">
+        <span class="emphasis">Asia/Shanghai</span>
+      </i18n-t>
       <ul>
-        <li>
-          AOSC OS will use <span class="emphasis">UTC as local time</span>.
-        </li>
+        <i18n-t keypath="confirm.l7" tag="li">
+          <span class="emphasis">{{ $t("confirm.l7-1") }}</span>
+        </i18n-t>
       </ul>
     </ul>
     <p style="line-height: 1">
       <i class="emphasis" style="font-size: 0.9rem">
-        If everything looks right to you, by pressing "Next," Installer will
-        begin downloading, installing, and configuring AOSC OS on your device.
-        Otherwise, please use the "Previous" button to go back top revious
-        configuration pages.
+        {{ $t("confirm.w1") }}
       </i>
     </p>
   </div>

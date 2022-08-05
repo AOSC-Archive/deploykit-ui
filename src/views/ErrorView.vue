@@ -12,14 +12,16 @@ export default {
 
 <template>
   <div>
-    <h1>Error</h1>
-    <p>Installer has encountered an error.</p>
+    <h1>{{ $t("error.title") }}</h1>
+    <p>{{ $t("error.p1") }}</p>
     <p class="error-msg">{{ message }}</p>
   </div>
   <DKBottomActions>
     <DKBottomRightButtons>
-      <button class="button" @click="$router.replace('/')">Retry</button>
-      <button class="button" @click="proceed">Exit</button>
+      <button class="button" @click="$router.replace('/')">
+        {{ $t("retry") }}
+      </button>
+      <button class="button" @click="proceed">{{ $t("exit") }}</button>
     </DKBottomRightButtons>
   </DKBottomActions>
 </template>

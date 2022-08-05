@@ -41,12 +41,12 @@ export default {
     <button
       class="quit-button"
       style="padding-top: 1rem"
-      aria-label="close button"
+      :aria-label="$t('d.sr-close')"
       @click="on_abort"
       @keyup.enter="on_abort"
     >
       <img
-        alt="window close icon"
+        :alt="$t('d.sr-close-icon')"
         src="@/assets/window-close-symbolic.svg"
         width="30"
         height="30"
@@ -60,10 +60,10 @@ export default {
   <div class="main-container">
     <div style="width: 12rem">
       <div class="wrapper">
-        <nav :class="nav_menu_bold(0)">Introduction</nav>
-        <nav :class="nav_menu_bold(1)">User Preferences</nav>
-        <nav :class="nav_menu_bold(2)">Installation</nav>
-        <nav :class="nav_menu_bold(3)">Final Steps</nav>
+        <nav :class="nav_menu_bold(0)">{{ $t("d.nav-0") }}</nav>
+        <nav :class="nav_menu_bold(1)">{{ $t("d.nav-1") }}</nav>
+        <nav :class="nav_menu_bold(2)">{{ $t("d.nav-2") }}</nav>
+        <nav :class="nav_menu_bold(3)">{{ $t("d.nav-3") }}</nav>
       </div>
     </div>
     <main>
@@ -76,7 +76,7 @@ export default {
   <div class="status-bar">
     <progress
       id="progressbar"
-      aria-label="overall progress"
+      :aria-label="$t('d.sr-progress')"
       :value="progress"
       max="100"
       class="progress-bar"
@@ -86,9 +86,9 @@ export default {
         >Step 5/7: Generating initramfs (initial RAM filesystem)... (91%)</i
       ></span
     >
-    <label for="progressbar" class="eta-box"
-      >25 - 30 minutes remaining...</label
-    >
+    <label for="progressbar" class="eta-box">{{
+      $t("d.eta-0", { time_lo: 10, time_hi: 20 })
+    }}</label>
   </div>
 </template>
 

@@ -11,8 +11,8 @@
       height="32"
     />
     <div style="line-height: 1">
-      <span style="font-size: 0.82rem">AOSC OS</span>
-      <h2 style="font-size: 1.25rem">Installation</h2>
+      <span style="font-size: 0.82rem">{{ $t("logo-p1") }}</span>
+      <h2 style="font-size: 1.25rem">{{ $t("logo-p2") }}</h2>
     </div>
   </div>
 </template>

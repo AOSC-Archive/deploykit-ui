@@ -48,7 +48,7 @@ export default {
         :id="id"
         v-model="user_input"
         :style="show_dropdown ? '' : 'text-align: center'"
-        :placeholder="show_dropdown ? 'Start typing to search...' : 'Select...'"
+        :placeholder="show_dropdown ? $t('search') : $t('select')"
         @focus="edit_selection"
       />
     </div>
@@ -61,9 +61,9 @@ export default {
         tabindex="0"
         >{{ opt.text }}</a
       >
-      <span class="placeholder" v-if="filtered_options.length < 1"
-        >No result</span
-      >
+      <span class="placeholder" v-if="filtered_options.length < 1">{{
+        $t("empty")
+      }}</span>
     </div>
   </div>
 </template>
