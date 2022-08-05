@@ -3,11 +3,21 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 </script>
 
 <script>
+function generate_hostname() {
+  let output = "aosc-";
+  const random = new Uint8Array(4);
+  window.crypto.getRandomValues(random);
+  for (let i = 0; i < 4; i++) {
+    output += random[i].toString(16);
+  }
+  return output;
+}
+
 export default {
   inject: ["config"],
   data: function () {
     return {
-      name: this.config.hostname || "",
+      name: this.config.hostname || generate_hostname(),
       err_msg: "",
     };
   },

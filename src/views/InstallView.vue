@@ -28,6 +28,9 @@ export default {
         this.hide = false;
       }, 200);
     },
+    launch_ff: function () {
+      this.$ipc.call("exec_nowait", ["firefox"]);
+    },
   },
   mounted: function () {
     this.current_slide = {
@@ -53,7 +56,12 @@ export default {
     </article>
   </div>
   <DKBottomActions>
-    <DKStripButton omit_bline="1" show_arrow="1" text="Launch Firefox">
+    <DKStripButton
+      omit_bline="1"
+      show_arrow="1"
+      text="Launch Firefox"
+      @click="launch_ff"
+    >
       <img src="@/assets/web-browser-symbolic.svg" height="36" />
     </DKStripButton>
     <DKStripButton text="Mute BGM">

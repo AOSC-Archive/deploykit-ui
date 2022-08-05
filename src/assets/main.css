@@ -37,6 +37,7 @@ input {
   background: var(--dk-button-color);
   border: 0;
   color: var(--color-text);
+  padding-left: 0.2rem;
 }
 
 input:hover {

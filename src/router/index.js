@@ -28,7 +28,7 @@ const router = createRouter({
       path: "/rescue",
       name: "rescue",
       component: RescueKitView,
-      meta: { steps: 0, next: "/partitions" },
+      meta: { steps: 0, next: "/users" },
     },
     {
       path: "/users",
@@ -50,7 +50,8 @@ const router = createRouter({
     {
       path: "/error",
       name: "error",
-      component: ErrorView, // TODO: parameters
+      props: true,
+      component: ErrorView,
     },
     {
       path: "/swapfile",
@@ -62,13 +63,13 @@ const router = createRouter({
       path: "/mirrors",
       name: "mirrors",
       component: MirrorView,
-      meta: { steps: 0, next: "/rescue" },
+      meta: { steps: 0, next: "/partitions" },
     },
     {
       path: "/mirrors-sel",
       name: "mirrors-sel",
       component: MirrorSelectView,
-      meta: { steps: 0, next: "/rescue" },
+      meta: { steps: 0, next: "/partitions" },
     },
     {
       path: "/locales",
@@ -92,7 +93,7 @@ const router = createRouter({
       path: "/partitions",
       name: "partitions",
       component: PartitionView,
-      meta: { steps: 0, next: "/users" },
+      meta: { steps: 0, next: "/rescue" },
     },
     {
       path: "/variants",

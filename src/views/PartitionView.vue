@@ -14,6 +14,11 @@ export default {
       return !this.partitions || this.partitions.length < 1;
     },
   },
+  methods: {
+    launch_gparted: function () {
+      this.$ipc.call("exec", ["gparted"]);
+    },
+  },
 };
 </script>
 
@@ -39,9 +44,6 @@ export default {
       <ul>
         <li>Create a <strong>512MiB</strong> EFI System Partition.</li>
         <li>Create a <strong>127.5GiB</strong> AOSC OS System Partition.</li>
-        <ul>
-          <li><strong>5GiB</strong> will be reserved for RescueKit.</li>
-        </ul>
       </ul>
       <p>
         If you would like to partition the storage device yourself, please press
@@ -50,7 +52,10 @@ export default {
     </section>
   </div>
   <DKBottomActions>
-    <DKStripButton text="Manage partitions with GParted">
+    <DKStripButton
+      @click="launch_gparted"
+      text="Manage partitions with GParted"
+    >
       <img src="@/assets/drive-harddisk-root-symbolic.svg" height="18" />
     </DKStripButton>
     <DKStepButtons />
