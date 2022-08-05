@@ -1,7 +1,9 @@
 <script setup>
 import DKListSelect from "@/components/DKListSelect.vue";
 import DKBottomSteps from "../components/DKBottomSteps.vue";
+</script>
 
+<script>
 const options = [
   {
     title: "Yes",
@@ -14,14 +16,21 @@ const options = [
     hl: true,
   },
 ];
-</script>
 
-<script>
 export default {
   inject: ["config"],
+  methods: {
+    load_default: function load_default() {
+      if (this.config.rescue == null) {
+        if (options[0].disabled) return 1;
+        return null;
+      }
+      return !this.config.rescue | 0;
+    },
+  },
   data: function () {
     return {
-      selected: !this.config.rescue | 0,
+      selected: this.load_default(),
     };
   },
 };

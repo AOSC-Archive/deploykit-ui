@@ -38,6 +38,9 @@ export default {
       paras: this.slides[0].body.split("\n"),
     };
     this.timer = setInterval(this.next_slide, 6000);
+    this.$ipc.call("wait_install").then(() => {
+      this.$router.replace("/finish");
+    });
   },
   beforeUnmount: function () {
     clearInterval(this.timer);

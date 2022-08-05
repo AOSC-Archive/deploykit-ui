@@ -31,7 +31,7 @@ export default {
         },
       ],
       selected_locale: this.config.locale,
-      rtc_tz: `${!this.config.rtc_utc | 0}`,
+      rtc_tz: `${!(this.config.rtc_utc || true) | 0}`,
       timezone: this.config.timezone,
     };
   },

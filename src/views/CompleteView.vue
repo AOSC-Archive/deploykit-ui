@@ -3,6 +3,16 @@ import DKBottomActions from "@/components/DKBottomActions.vue";
 import DKBottomRightButtons from "@/components/DKBottomRightButtons.vue";
 </script>
 
+<script>
+export default {
+  methods: {
+    finish: function () {
+      this.$ipc.call("finish").then(window.close);
+    },
+  },
+};
+</script>
+
 <template>
   <div>
     <h1>And... Done!</h1>
@@ -16,7 +26,7 @@ import DKBottomRightButtons from "@/components/DKBottomRightButtons.vue";
   </div>
   <DKBottomActions>
     <DKBottomRightButtons>
-      <button class="button">Finish</button>
+      <button class="button" @click="finish">Finish</button>
     </DKBottomRightButtons>
   </DKBottomActions>
 </template>
