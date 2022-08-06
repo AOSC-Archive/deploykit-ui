@@ -121,13 +121,13 @@
         "p2": "Please select your local time zone. Linux systems usually use UTC as local time by default, but may result in time discrepancy with your other operating systems, like Windows. Setting RTC time as local time will prevent this.",
         "l1": "Locale",
         "l2": "Timezone",
-        "l3": "RTC Timezone",
+        "l3": "Reference Time",
         "o1": "UTC (Recommended)",
         "o2": "Local time (like Windows)"
     },
     "d": {
         "sr-close": "close button",
-        "sr-close-icon": "window close icon",
+        "sr-close-icon": "close button",
         "sr-progress": "overall progress",
         "nav-0": "Introduction",
         "nav-1": "User Preferences",
