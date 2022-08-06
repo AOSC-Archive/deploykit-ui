@@ -66,8 +66,8 @@
         "p1": "RescueKit is a rescue and restoration environment for AOSC OS. RescueKit provides tools for data backup and recovery, reinstallation, and more. Would you like to install RescueKit?",
         "yes": "Yes",
         "no": "No (Not Recommended)",
-        "l1": "Installer will create a separate {size} partition within the AOSC OS system partition at {path}.",
-        "w1": "Without RescueKit, you will likely need to use an external live media to repair or reinstall AOSC OS.",
+        "l1": "Installer will create a RescueKit {size} partition within the AOSC OS system partition at {path}.",
+        "w1": "Without RescueKit, you will likely need to use an external live media (like LiveKit) to repair or reinstall AOSC OS.",
         "bad1": "Installer has detected insufficient space on your storage device. RescueKit requires 5GiB of additional space in your system partition to install.",
         "bad2": "Installer has detected a non-GPT partition scheme on your storage device. RescueKit is only available for devices with a GPT partition scheme."
     },
