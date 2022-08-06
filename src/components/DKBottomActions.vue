@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="bottom-bar"><slot /></div>
+  <div class="bottom-bar"><slot></slot></div>
 </template>
 
 <style scoped>

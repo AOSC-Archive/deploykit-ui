@@ -2,6 +2,7 @@
 import { RouterView } from "vue-router";
 import DKLogo from "@/components/DKLogo.vue";
 import LangSelect from "@/views/LangSelect.vue";
+import DKLayout from "@/components/DKLayout.vue";
 </script>
 
 <script>
@@ -13,6 +14,8 @@ export default {
       progress: 0,
       config: {},
       lang_selected: false,
+      lightup: 0,
+      timer: null,
     };
   },
   methods: {
@@ -22,18 +25,35 @@ export default {
     nav_menu_bold: function (step) {
       return this.page_number >= step ? "active" : "";
     },
+    lightup_seq: function (step) {
+      return this.lightup >= step ? "" : "hidden";
+    },
+    execute_lightup: function () {
+      const my = this;
+      const timer = setInterval(function () {
+        if (++my.lightup >= 4) clearInterval(timer);
+      }, 210);
+    },
     on_lang_selected: function (id) {
       console.info(`Language: ${id}`);
       if (id == "en") {
         // default locale is always loaded before-hand
         this.lang_selected = true;
+        this.execute_lightup();
         return;
       }
       // lazy load the translation strings
       const my = this;
-      this.switchLocale(id).then(function () {
-        my.lang_selected = true;
-      });
+      this.switchLocale(id)
+        .then(function () {
+          my.lang_selected = true;
+          my.execute_lightup();
+        })
+        .catch(function () {
+          console.error(`Language ${id} has no translation strings`);
+          my.lang_selected = true;
+          my.execute_lightup();
+        });
     },
   },
   mounted: function () {
@@ -68,30 +88,26 @@ export default {
         height="30"
       />
     </button>
-    <header>
+    <header style="width: 90%" :class="lightup_seq(1)">
       <DKLogo />
     </header>
   </div>
   <!-- language select overlay -->
   <LangSelect v-if="!lang_selected" @update:lang="on_lang_selected" />
   <!-- main content -->
-  <div class="main-container">
-    <div style="width: 12rem">
-      <div class="wrapper" v-if="lang_selected">
+  <DKLayout :main_class="lightup_seq(3)" v-if="lang_selected">
+    <RouterView />
+    <template #left>
+      <div class="wrapper" :class="lightup_seq(2)">
         <nav :class="nav_menu_bold(0)">{{ $t("d.nav-0") }}</nav>
         <nav :class="nav_menu_bold(1)">{{ $t("d.nav-1") }}</nav>
         <nav :class="nav_menu_bold(2)">{{ $t("d.nav-2") }}</nav>
         <nav :class="nav_menu_bold(3)">{{ $t("d.nav-3") }}</nav>
       </div>
-    </div>
-    <main v-if="lang_selected">
-      <div style="height: 100%; overflow-y: auto; margin-right: 3rem">
-        <RouterView />
-      </div>
-    </main>
-  </div>
+    </template>
+  </DKLayout>
   <!-- status bar -->
-  <div class="status-bar" v-if="lang_selected">
+  <div class="status-bar" v-if="lang_selected" :class="lightup_seq(4)">
     <progress
       id="progressbar"
       :aria-label="$t('d.sr-progress')"
@@ -115,19 +131,20 @@ export default {
   </div>
 </template>
 
+<style>
+main {
+  transition: opacity 0.3s;
+}
+</style>
+
 <style scoped>
-.main-container {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  padding: 0 2rem;
-  height: 75vh;
+.hidden {
+  opacity: 0;
 }
 
-.main-container main {
-  padding-top: 1rem;
-  margin-left: 4rem;
-  max-width: 35vw;
-  height: 100%;
+div,
+header {
+  transition: opacity 0.3s;
 }
 
 .status-bar {
