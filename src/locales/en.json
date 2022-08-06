@@ -55,7 +55,7 @@
         "o1": "Automatic",
         "o2": "Custom",
         "o3": "Disabled",
-        "p1": "Would you like to create a swapfile? A swapfile could help when your system is under high memory load by offloading some of your program data to your storage device.",
+        "p1": "Would you like to create a swapfile? A swapfile could help when your system is under high memory load by offloading some of your program data to your storage device, thereby improving system stability.",
         "w1": "Running AOSC OS without a swapfile may cause instability at high memory load, resulting in possible application crashes and data loss!",
         "l1": "Your system has {size} of RAM.",
         "l2": "Installer will create a swapfile of {size} on your AOSC OS system partition.",
