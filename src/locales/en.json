@@ -74,7 +74,7 @@
     "part": {
         "title": "Partitioning",
         "r1": "Analyzing your system...",
-        "p1": "Please select a partition as AOSC OS system partition. If you would like to make changes to your partitions, please select the \"GParted\" button below.",
+        "p1": "Please select a partition as AOSC OS system partition. If you would like to make changes to your partitions, please select the \"Manage partitions with GParted\" button below.",
         "p2": "It seems like you have an empty or new storage device. Installer can help you create a standard partition scheme based on your storage configuration, as you press \"Next,\" installer will partition your storage device based on the following specifications.",
         "p3": "If you would like to partition the storage device yourself, please press the \"Manage partitions with GParted\" button below.",
         "b1": "Manage partitions with GParted",
@@ -123,7 +123,7 @@
         "l2": "Timezone",
         "l3": "Reference Time",
         "o1": "UTC (Recommended)",
-        "o2": "Local time (like Windows)"
+        "o2": "RTC (like Windows)"
     },
     "d": {
         "sr-close": "close button",
@@ -143,7 +143,7 @@
         "t2": "Work Ready",
         "p2": "Built with out-of-the-box usability and easy maintenance in mind, AOSC OS is a ready-made toolbox for your everyday computing.\nFrom office productivity to server administration, photoediting to 3D modeling, note-taking to translation projects, AOSC OS has the right tools ready for you. With our clear and refined software repository, we will get you right under way for whatever awaits.\nFor Internet-restricted regions, AOSC OS is ready to help you connect with the globalized world.",
         "t3": "Play Ready",
-        "p3": "Powered by a solid graphical stack and strong community support, AOSC OS is ready for your entertainment needs.\nPlay your favorite CD with Strawberry, watch your latest block-buster movies with VLC, or share them together with friends and family with Kodi, AOSC OS has everything you need for a good time.\nPlay your favorite Linux and Windows® games with Steam, fuel your nostalgia with console emulators! If you feel like a game or two, we have you covered.",
+        "p3": "Powered by a solid graphical stack and strong community support, AOSC OS is ready for your entertainment needs.\nPlay your favorite CD with Strawberry, watch your latest block-buster movies with VLC, or share them together with friends and family with Kodi, AOSC OS has everything you need for a good time.\nPlay your favorite Linux and Windows® games with Steam®, fuel your nostalgia with console emulators! If you feel like a game or two, we have you covered.",
         "t4": "Disaster Ready",
         "p4": "AOSC OS comes pre-installed with RescueKit where available, a self-contained maintenance and rescue environment.\nCorrupted file system? Accidental deletes? Messed up system updates? No worries! RescueKit has most (if not everything) you need to get your AOSC OS back on track.\nIf you are the cautious type, RescueKit also comes with essential tools for backing up your system for a rainy day.",
         "t5": "Device Ready",
