@@ -118,7 +118,7 @@
     "locale": {
         "title": "Locale & Time",
         "p1": "Please select your preferred locale. Your locale setting will affect your system's display language and other preferences.",
-        "p2": "Finally, please select your local time zone. UTC system time is the default setting for Linux systems, but may result intime discrepancy with your other operating systems like Windows. Setting local time as system time will prevent this.",
+        "p2": "Please select your local time zone. Linux systems usually use UTC as local time by default, but may result in time discrepancy with your other operating systems, like Windows. Setting RTC time as local time will prevent this.",
         "l1": "Locale",
         "l2": "Timezone",
         "l3": "RTC Timezone",
