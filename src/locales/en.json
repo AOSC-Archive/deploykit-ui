@@ -2,7 +2,7 @@
     "lang": "English (United States)",
     "welcome": {
         "title": "Welcome",
-        "p1": "In the following pages, Installer will guide you through...",
+        "p1": "In the following pages, AOSC OS Installer will guide you through...",
         "l1": "Variant selection",
         "l2": "Disk partitioning",
         "l3": "System configuration",
