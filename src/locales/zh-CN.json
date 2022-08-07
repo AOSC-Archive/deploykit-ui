@@ -64,8 +64,8 @@
     "rescue": {
         "title": "RescueKit",
         "p1": "RescueKit 是 AOSC OS 的救援及恢复环境，内建用于数据备份与恢复、系统重装等的工具。是否要安装 RescueKit？",
-        "yes": "是",
-        "no": "否（不推荐）",
+        "yes": "安装",
+        "no": "不安装（不推荐）",
         "l1": "安装程序将在您选定的系统分区 ({path}) 范围内额外创建一个大小为 {size} 的 RescueKit 分区。",
         "w1": "如不安装 RescueKit，您在修复或重装系统时可能需要使用外置介质（如 LiveKit）。",
         "bad1": "安装程序探测到您的存储设备上空间不足，RescueKit 需要从系统分区中腾出 5GiB 空闲空间才能安装。",
