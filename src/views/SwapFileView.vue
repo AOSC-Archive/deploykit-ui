@@ -1,19 +1,22 @@
 <script>
 import DKBottomSteps from "../components/DKBottomSteps.vue";
 export default {
-  inject: ["config"],
+  inject: ["config", "humanSize"],
   computed: {
     max_size: function () {
-      return this.rec_size * 2;
+      return Math.floor(this.rec_size / 536870912);
+    },
+    rec_size_gb: function () {
+      return Math.floor(this.rec_size / 1073741824);
     },
   },
   components: { DKBottomSteps },
   data: function () {
     return {
       type: 0,
-      ram_size: 16,
+      ram_size: 16e9,
       size: 16,
-      rec_size: 16,
+      rec_size: 16e9,
     };
   },
 };
@@ -37,9 +40,9 @@ export default {
         </p>
         <div></div>
         <p v-if="type === 0" style="font-size: 0.9rem">
-          <i>{{ $t("swap.l1", { size: ram_size }) }}</i>
+          <i>{{ $t("swap.l1", { size: humanSize(ram_size) }) }}</i>
           <br />
-          <i>{{ $t("swap.l2", { size: rec_size }) }}</i>
+          <i>{{ $t("swap.l2", { size: humanSize(rec_size) }) }}</i>
         </p>
         <p class="error-msg" v-if="type === 2">
           <i>{{ $t("swap.w1") }}</i>
@@ -51,21 +54,21 @@ export default {
           <input
             class="dk-slider"
             type="range"
-            :max="rec_size * 2"
+            :max="max_size"
             min="0"
             step="0.5"
             v-model="size"
           />
           <div class="sliderticks">
             <p>0GiB</p>
-            <p>{{ rec_size }}GiB</p>
-            <p>{{ rec_size * 2 }}GiB</p>
+            <p>{{ rec_size_gb }}GiB</p>
+            <p>{{ max_size }}GiB</p>
           </div>
         </section>
         <span style="float: right; width: 25%; margin-left: 2rem">
           <input
             type="number"
-            :max="rec_size * 2"
+            :max="max_size"
             min="0"
             step="0.5"
             style="width: 67%"
@@ -77,9 +80,9 @@ export default {
       </div>
       <p v-if="type === 1" style="font-size: 0.9rem; margin-left: 30%">
         <br />
-        <i>{{ $t("swap.l1", { size: ram_size }) }}</i>
+        <i>{{ $t("swap.l1", { size: humanSize(ram_size) }) }}</i>
         <br />
-        <i>{{ $t("swap.l3", { size: rec_size }) }}</i>
+        <i>{{ $t("swap.l3", { size: humanSize(rec_size) }) }}</i>
       </p>
       <p class="error-msg" v-if="type === 1 && size == 0">
         <i>{{ $t("swap.w1") }}</i>

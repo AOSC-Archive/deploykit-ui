@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import { createI18n } from "vue-i18n";
 import ipc from "./ipc";
+import humanFormat from "human-format";
 
 import messages from "./locales/en.json";
 
@@ -23,7 +24,9 @@ async function switchLocale(locale) {
   document.querySelector("html").setAttribute("lang", locale);
 }
 
+// provided functions in the global scope
 app.provide("switchLocale", switchLocale);
+app.provide("humanSize", humanFormat.bytes);
 
 app.use(router);
 app.use(i18n);

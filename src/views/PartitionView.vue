@@ -11,7 +11,14 @@ export default {
     return {
       selected: null,
       gparted: false,
-      partitions: [],
+      partitions: [
+        {
+          path: "/dev/nvme0n1p1",
+          fs_type: null,
+          size: "200GiB",
+          comment: "Red Hat Enterprise Linux 8.5",
+        },
+      ],
       loading: false,
     };
   },
@@ -24,6 +31,19 @@ export default {
     },
   },
   methods: {
+    comment: function (comment) {
+      if (comment == "esp") {
+        return this.$t("part.k1");
+      } else if (comment == "mbr") {
+        return this.$t("part.k3");
+      } else if (comment == "winre") {
+        return this.$t("part.k2");
+      }
+      if (comment.length > 20) {
+        return this.$t("part.k5", { other_os: comment.substring(0, 20) });
+      }
+      return this.$t("part.k4", { other_os: comment });
+    },
     launch_gparted: function () {
       this.gparted = true;
       this.$ipc.call("exec", ["gparted"]).then(this.list_partitions);
@@ -54,11 +74,13 @@ export default {
         >
           <template #item="option">
             <div style="width: 100%">
-              <span class="column-60">{{ option.path }}</span>
-              <span class="column-20">{{
-                option.fs_type || "Unformatted"
-              }}</span>
-              <span class="column-20">{{ option.size }}</span>
+              <span class="column-85"
+                >{{ option.path }}&nbsp;{{ comment(option.comment) }}</span
+              >
+              <span class="column-15">{{ option.size }}</span>
+              <p class="secondary">
+                <span>{{ option.fs_type || $t("part.k0") }}</span>
+              </p>
             </div>
           </template>
         </DKListSelect>
@@ -89,13 +111,22 @@ export default {
 </template>
 
 <style scoped>
-.column-20 {
-  width: 20%;
+.column-85 {
+  font-weight: 600;
+  width: 85%;
   display: inline-block;
 }
 
-.column-60 {
-  width: 60%;
+.column-15 {
+  width: 15%;
   display: inline-block;
+}
+
+/* p.secondary span {
+  color: var(--dk-gray);
+} */
+
+p.secondary {
+  margin: 0;
 }
 </style>
