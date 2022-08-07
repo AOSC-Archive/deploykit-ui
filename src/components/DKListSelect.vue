@@ -3,6 +3,7 @@ export default {
   props: {
     options: Array,
     selected: Number,
+    no_margin: Boolean,
   },
   methods: {
     select: function (index) {
@@ -23,16 +24,18 @@ export default {
       @keyup.enter="select(index)"
       @keyup.space="select(index)"
     >
-      <div class="button-box">
-        <h2 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem">
-          {{ option.title }}
-        </h2>
-        <p
-          style="font-size: 0.88rem; line-height: 1.2"
-          :class="option.hl ? 'error-msg' : ''"
-        >
-          {{ option.body }}
-        </p>
+      <div :class="'button-box' + (no_margin ? '' : ' use-margin')">
+        <slot name="item" v-bind="option">
+          <h2 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem">
+            {{ option.title }}
+          </h2>
+          <p
+            style="font-size: 0.88rem; line-height: 1.2"
+            :class="option.hl ? 'error-msg' : ''"
+          >
+            {{ option.body }}
+          </p>
+        </slot>
       </div>
     </button>
   </div>
@@ -59,9 +62,12 @@ button[disabled].button:hover {
   align-content: flex-start;
 }
 
+.button-box.use-margin {
+  margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
 .button-box {
   text-align: left;
-  margin: 0.5rem 0.5rem 0 0.5rem;
   width: 100%;
 }
 

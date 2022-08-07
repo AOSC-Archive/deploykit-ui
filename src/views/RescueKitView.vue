@@ -4,34 +4,61 @@ import DKBottomSteps from "../components/DKBottomSteps.vue";
 </script>
 
 <script>
-const options = [
-  {
-    title: "Yes",
-    body: "Installer has detected insufficient space on your storage device. RescueKit requires 5GiB of additional space in your system partition to install.",
-    disabled: true,
-  },
-  {
-    title: "No (Not Recommended)",
-    body: "Without RescueKit, you will likely need to use an external live media to repair or reinstall AOSC OS.",
-    hl: true,
-  },
-];
-
 export default {
   inject: ["config"],
   methods: {
-    load_default: function load_default() {
+    load_default: function () {
       if (this.config.rescue == null) {
-        if (options[0].disabled) return 1;
+        if (this.options[0].disabled) return 1;
         return null;
       }
       return !this.config.rescue | 0;
     },
+    rescuekit_options: function () {
+      const no_option = {
+        title: this.$t("rescue.no"),
+        body: this.$t("rescue.w1"),
+        hl: true,
+      };
+      switch (this.config.rescue_avail || 1) {
+        case 0:
+          return [
+            {
+              title: this.$t("rescue.yes"),
+              body: this.$t("rescue.l1"),
+            },
+            no_option,
+          ];
+        case 1:
+          return [
+            {
+              title: this.$t("rescue.yes"),
+              body: this.$t("rescue.bad1"),
+              disabled: true,
+            },
+            no_option,
+          ];
+        case 2:
+          return [
+            {
+              title: this.$t("rescue.yes"),
+              body: this.$t("rescue.bad2"),
+              disabled: true,
+            },
+            no_option,
+          ];
+      }
+      throw new Error(`Unknown RescueKit status ${this.config.rescue_avail}`);
+    },
   },
   data: function () {
     return {
-      selected: this.load_default(),
+      options: this.rescuekit_options(),
+      selected: null,
     };
+  },
+  mounted: function () {
+    this.selected = this.load_default();
   },
 };
 </script>

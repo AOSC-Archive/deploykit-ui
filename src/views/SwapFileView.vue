@@ -1,7 +1,7 @@
 <script>
 import DKBottomSteps from "../components/DKBottomSteps.vue";
 export default {
-  props: {},
+  inject: ["config"],
   computed: {
     max_size: function () {
       return this.rec_size * 2;

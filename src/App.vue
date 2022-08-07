@@ -16,7 +16,33 @@ export default {
       lang_selected: false,
       lightup: 0,
       timer: null,
+      progress_detail: {},
     };
+  },
+  computed: {
+    eta_value: function () {
+      const details = this.progress_detail;
+      if (details.eta_lo > 0) {
+        return this.$t("d.eta-0", {
+          time_lo: details.eta_lo,
+          time_hi: details.eta_hi,
+        });
+      } else if (details.eta_hi > 5) {
+        return this.$tc("d.eta-1", details.eta_hi, { time: details.eta_hi });
+      }
+      return this.$t("d.eta-2");
+    },
+    install_info: function () {
+      const details = this.progress_detail;
+      if (!details.status) return "";
+      const status = details.status;
+      return this.$t("install.status", {
+        curr: status.c,
+        total: status.t,
+        msg: this.$t(`install.i${status.c}`),
+        perc: status.p,
+      });
+    },
   },
   methods: {
     on_abort: function () {
@@ -54,6 +80,9 @@ export default {
           my.lang_selected = true;
           my.execute_lightup();
         });
+    },
+    on_progress_update: function (progress) {
+      this.progress_detail = progress;
     },
   },
   mounted: function () {
@@ -116,18 +145,9 @@ export default {
       class="progress-bar"
     ></progress>
     <span class="info-box" v-if="page_number > 1 && page_number < 4"
-      ><i>{{
-        $t("install.status", {
-          curr: 5,
-          total: 7,
-          msg: $t("install.i5"),
-          perc: 97,
-        })
-      }}</i></span
+      ><i>{{ install_info }}</i></span
     >
-    <label for="progressbar" class="eta-box">{{
-      $t("d.eta-0", { time_lo: 10, time_hi: 20 })
-    }}</label>
+    <label for="progressbar" class="eta-box">{{ eta_value }}</label>
   </div>
 </template>
 

@@ -2,6 +2,29 @@
 import DKBottomActions from "@/components/DKBottomActions.vue";
 import DKStepButtons from "@/components/DKStepButtons.vue";
 import DKStripButton from "@/components/DKStripButton.vue";
+import DKListSelect from "@/components/DKListSelect.vue";
+</script>
+
+<script>
+export default {
+  data: function () {
+    return {
+      mirrors: [],
+      loading: false,
+      selected: null,
+    };
+  },
+  methods: {
+    run_bench: function () {
+      this.loading = true;
+      this.$ipc.call("bench", []).then((data) => {
+        this.mirrors = data;
+        this.loading = false;
+        this.selected = 0;
+      });
+    },
+  },
+};
 </script>
 
 <template>
@@ -9,15 +32,33 @@ import DKStripButton from "@/components/DKStripButton.vue";
     <h1>{{ $t("mirror.title") }}</h1>
     <section>
       <p>{{ $t("mirror.p2") }}</p>
-      <div>
-        <!-- selection menu -->
-      </div>
+      <DKListSelect
+        :no_margin="true"
+        :options="mirrors"
+        v-model:selected="selected"
+      >
+        <template #item="option">
+          <div>
+            <span
+              ><b>{{ option.name }}</b></span
+            >
+            &nbsp;
+            <span>({{ option.region }})</span>
+          </div>
+        </template>
+      </DKListSelect>
     </section>
   </div>
-  <DKBottomActions>
-    <DKStripButton :text="$t('mirror.b2')">
+  <DKBottomActions v-if="!loading">
+    <DKStripButton :text="$t('mirror.b2')" @click="run_bench">
       <img src="@/assets/histogram-symbolic.svg" height="36" />
     </DKStripButton>
     <DKStepButtons />
   </DKBottomActions>
 </template>
+
+<style scoped>
+span b {
+  font-weight: 600;
+}
+</style>
