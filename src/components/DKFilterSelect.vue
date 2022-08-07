@@ -81,7 +81,7 @@ div.select::after {
 }
 
 .dropdown-content a {
-  padding: 12px 16px;
+  padding: 4px 16px;
   text-decoration: none;
   color: #1f1f1f;
   display: block;

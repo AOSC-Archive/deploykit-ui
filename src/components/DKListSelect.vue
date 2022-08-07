@@ -31,7 +31,7 @@ export default {
           </h2>
           <p
             style="font-size: 0.88rem; line-height: 1.2"
-            :class="option.hl ? 'error-msg' : ''"
+            :class="option.hl ? 'hl-msg' : ''"
           >
             {{ option.body }}
           </p>
@@ -44,6 +44,10 @@ export default {
 <style scoped>
 button.button.selected {
   background-color: var(--dk-button-color);
+}
+
+button.button.selected .hl-msg {
+  color: var(--dk-accent);
 }
 
 .button:hover {

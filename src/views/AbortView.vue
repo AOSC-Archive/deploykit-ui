@@ -7,7 +7,7 @@ import DKStripButton from "@/components/DKStripButton.vue";
   <div>
     <h1>{{ $t("abort.title") }}</h1>
     <i18n-t keypath="abort.p1" tag="p">
-      <strong>{{ $t("abort.p1-1") }}</strong>
+      {{ $t("abort.p1-1") }}
     </i18n-t>
     <p>{{ $t("abort.p2") }}</p>
   </div>

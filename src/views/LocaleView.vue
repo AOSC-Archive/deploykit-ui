@@ -58,6 +58,7 @@ export default {
         @update:selected="(v) => (selected_locale = v)"
       />
     </form>
+    <br />
     <p>{{ $t("locale.p2") }}</p>
     <p class="error-msg"></p>
     <form class="form-layout">

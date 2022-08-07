@@ -59,11 +59,7 @@ export default {
         </i18n-t>
       </ul>
     </ul>
-    <p style="line-height: 1">
-      <i class="emphasis" style="font-size: 0.9rem">
-        {{ $t("confirm.w1") }}
-      </i>
-    </p>
+    <p>{{ $t("confirm.w1") }}</p>
   </div>
   <DKBottomSteps />
 </template>
