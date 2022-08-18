@@ -32,12 +32,13 @@ export default {
   },
   methods: {
     comment: function (comment) {
-      if (comment == "esp") {
-        return this.$t("part.k1");
-      } else if (comment == "mbr") {
-        return this.$t("part.k3");
-      } else if (comment == "winre") {
-        return this.$t("part.k2");
+      switch (comment) {
+        case "esp":
+          return this.$t("part.k1");
+        case "mbr":
+          return this.$t("part.k3");
+        case "winre":
+          return this.$t("part.k2");
       }
       if (comment.length > 20) {
         return this.$t("part.k5", { other_os: comment.substring(0, 20) });

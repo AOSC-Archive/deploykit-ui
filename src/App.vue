@@ -55,9 +55,8 @@ export default {
       return this.lightup >= step ? "" : "hidden";
     },
     execute_lightup: function () {
-      const my = this;
-      const timer = setInterval(function () {
-        if (++my.lightup >= 4) clearInterval(timer);
+      const timer = setInterval(() => {
+        if (++this.lightup >= 4) clearInterval(timer);
       }, 210);
     },
     on_lang_selected: function (id) {
@@ -69,16 +68,15 @@ export default {
         return;
       }
       // lazy load the translation strings
-      const my = this;
       this.switchLocale(id)
-        .then(function () {
-          my.lang_selected = true;
-          my.execute_lightup();
+        .then(() => {
+          this.lang_selected = true;
+          this.execute_lightup();
         })
-        .catch(function () {
+        .catch(() => {
           console.error(`Language ${id} has no translation strings`);
-          my.lang_selected = true;
-          my.execute_lightup();
+          this.lang_selected = true;
+          this.execute_lightup();
         });
     },
     on_progress_update: function (progress) {
@@ -86,11 +84,10 @@ export default {
     },
   },
   mounted: function () {
-    const my = this;
     this.$router.beforeEach((to) => {
       if (to.name == "error" || to.name == "abort") return null;
-      my.page_number = to.meta.steps;
-      my.progress = my.page_number * 25;
+      this.page_number = to.meta.steps;
+      this.progress = this.page_number * 25;
     });
   },
   provide: function () {

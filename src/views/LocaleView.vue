@@ -1,6 +1,6 @@
 <script setup>
 import DKFilterSelect from "@/components/DKFilterSelect.vue";
-import DKBottomSteps from "../components/DKBottomSteps.vue";
+import DKBottomSteps from "@/components/DKBottomSteps.vue";
 </script>
 
 <script>
@@ -55,7 +55,7 @@ export default {
         :default="selected_locale"
         :options="locales"
         id="locale"
-        @update:selected="(v) => (selected_locale = v)"
+        v-model:selected="selected_locale"
       />
     </form>
     <br />
@@ -68,7 +68,7 @@ export default {
           :default="timezone"
           :options="timezones"
           id="timezone"
-          @update:selected="(v) => (timezone = v)"
+          v-model:selected="timezone"
         />
       </p>
       <label for="rtc">{{ $t("locale.l3") }}</label>
