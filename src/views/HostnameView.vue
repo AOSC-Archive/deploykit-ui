@@ -39,7 +39,7 @@ export default {
     },
     on_focus: function () {
       if (this.name === this.generated_name)
-        document.getElementById("hostname").select();
+        setTimeout(() => document.getElementById("hostname").select(), 150);
     },
   },
 };
