@@ -11,7 +11,7 @@ export default {
     <div style="width: 12rem">
       <slot name="left"></slot>
     </div>
-    <main :class="main_class">
+    <main :class="main_class" style="min-width: 34em">
       <div style="height: 100%; overflow-y: auto; margin-right: 3rem">
         <slot></slot>
       </div>
