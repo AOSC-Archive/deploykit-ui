@@ -17,6 +17,7 @@ export default {
       lightup: 0,
       timer: null,
       progress_detail: {},
+      can_quit: true,
     };
   },
   computed: {
@@ -106,6 +107,8 @@ export default {
       :aria-label="$t('d.sr-close')"
       @click="on_abort"
       @keyup.enter="on_abort"
+      :disabled="!can_quit"
+      v-show="this.lang_selected"
     >
       <img
         :alt="$t('d.sr-close-icon')"
@@ -207,6 +210,11 @@ header {
   appearance: none;
   background: transparent;
   border: 0;
+}
+
+.quit-button[disabled] {
+  cursor: not-allowed;
+  filter: grayscale(1);
 }
 
 header {
