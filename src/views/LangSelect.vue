@@ -25,7 +25,7 @@ export default {
 
 <template>
   <DKLayout>
-    <section>
+    <section style="max-height: 65vh; overflow-y: scroll">
       <DKListSelect
         :options="display_data"
         v-model:selected="selection"
