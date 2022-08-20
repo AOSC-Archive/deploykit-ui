@@ -108,7 +108,7 @@ export default {
       @click="on_abort"
       @keyup.enter="on_abort"
       :disabled="!can_quit"
-      v-show="this.lang_selected"
+      v-show="lang_selected"
     >
       <img
         :alt="$t('d.sr-close-icon')"

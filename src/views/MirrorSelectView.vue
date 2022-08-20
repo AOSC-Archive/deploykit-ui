@@ -17,7 +17,7 @@ export default {
   },
   watch: {
     loading(newValue) {
-      this.$emit("update:can_quit", newValue);
+      this.$emit("update:can_quit", !newValue);
     },
   },
   methods: {
