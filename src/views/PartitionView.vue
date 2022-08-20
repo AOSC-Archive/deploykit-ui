@@ -59,12 +59,10 @@ export default {
       this.$ipc.call("exec", ["gparted"]).then(this.list_partitions);
     },
     list_partitions: function () {
-      this.loading = true;
-      this.gparted = true;
+      this.loading = this.gparted = true;
       this.$ipc.call("list_partitions", []).then((data) => {
         this.partitions = data;
-        this.gparted = false;
-        this.loading = false;
+        this.gparted = this.loading = false;
       });
     },
   },
