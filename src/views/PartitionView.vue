@@ -3,6 +3,7 @@ import DKStripButton from "@/components/DKStripButton.vue";
 import DKBottomActions from "@/components/DKBottomActions.vue";
 import DKStepButtons from "@/components/DKStepButtons.vue";
 import DKListSelect from "@/components/DKListSelect.vue";
+import DKSpinner from "@/components/DKSpinner.vue";
 </script>
 
 <script>
@@ -63,7 +64,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div v-if="!loading">
     <h1>{{ $t("part.title") }}</h1>
     <section v-if="!new_disk">
       <p>{{ $t("part.p1") }}</p>
@@ -103,7 +104,12 @@ export default {
       </p>
     </section>
   </div>
-  <DKBottomActions v-if="!gparted">
+  <!-- loading screen -->
+  <div class="loading" v-else>
+    <h1>{{ $t("part.title") }}</h1>
+    <DKSpinner :title="$t('part.r1')" />
+  </div>
+  <DKBottomActions v-if="!gparted && !loading">
     <DKStripButton @click="launch_gparted" :text="$t('part.b1')">
       <img src="@/assets/drive-harddisk-root-symbolic.svg" height="18" />
     </DKStripButton>

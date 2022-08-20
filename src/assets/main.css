@@ -113,3 +113,8 @@ button[disabled] {
 .error-msg {
   color: var(--dk-accent);
 }
+
+.loading {
+  cursor: wait;
+  height: 85%;
+}

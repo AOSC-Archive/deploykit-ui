@@ -3,6 +3,7 @@ import DKBottomActions from "@/components/DKBottomActions.vue";
 import DKStepButtons from "@/components/DKStepButtons.vue";
 import DKStripButton from "@/components/DKStripButton.vue";
 import DKListSelect from "@/components/DKListSelect.vue";
+import DKSpinner from "@/components/DKSpinner.vue";
 </script>
 
 <script>
@@ -28,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div v-if="!loading">
     <h1>{{ $t("mirror.title") }}</h1>
     <section>
       <p>{{ $t("mirror.p2") }}</p>
@@ -48,6 +49,11 @@ export default {
         </template>
       </DKListSelect>
     </section>
+  </div>
+  <!-- loading screen -->
+  <div class="loading" v-else>
+    <h1>{{ $t("mirror.title") }}</h1>
+    <DKSpinner :title="$t('mirror.k1')" />
   </div>
   <DKBottomActions v-if="!loading">
     <DKStripButton :text="$t('mirror.b2')" @click="run_bench">
