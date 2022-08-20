@@ -31,6 +31,14 @@ export default {
       return !this.gparted && (this.new_disk || this.selected != null);
     },
   },
+  watch: {
+    loading(newValue) {
+      this.$emit("update:can_quit", !newValue && !this.gparted);
+    },
+    gparted(newValue) {
+      this.$emit("update:can_quit", !newValue && !this.loading);
+    },
+  },
   methods: {
     comment: function (comment) {
       switch (comment) {

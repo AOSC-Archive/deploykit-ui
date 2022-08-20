@@ -125,7 +125,7 @@ export default {
   <LangSelect v-if="!lang_selected" @update:lang="on_lang_selected" />
   <!-- main content -->
   <DKLayout :main_class="lightup_seq(3)" v-if="lang_selected">
-    <RouterView v-model:can_quit="can_quit" />
+    <RouterView @update:can_quit="(v) => (can_quit = v)" />
     <template #left>
       <div class="wrapper" :class="lightup_seq(2)">
         <nav :class="nav_menu_bold(0)">{{ $t("d.nav-0") }}</nav>

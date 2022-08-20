@@ -2,6 +2,12 @@
 export default {
   props: {
     title: String,
+    can_cancel: Boolean,
+  },
+  methods: {
+    on_cancel: function () {
+      this.$emit("cancel");
+    },
   },
 };
 </script>
@@ -14,6 +20,14 @@ export default {
         <img class="c2" height="35" src="@/assets/cog.svg" />
       </div>
       <h2 style="text-align: center">{{ title }}</h2>
+      <button
+        style="margin-left: auto; margin-right: auto"
+        class="button"
+        v-if="can_cancel"
+        @click="on_cancel"
+      >
+        {{ $t("cancel") }}
+      </button>
     </div>
   </div>
 </template>

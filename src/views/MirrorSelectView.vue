@@ -15,6 +15,11 @@ export default {
       selected: null,
     };
   },
+  watch: {
+    loading(newValue) {
+      this.$emit("update:can_quit", newValue);
+    },
+  },
   methods: {
     run_bench: function () {
       this.loading = true;
