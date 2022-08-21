@@ -33,9 +33,12 @@ export default {
   <div>
     <h1>{{ $t("driver.title") }}</h1>
     <i18n-t keypath="driver.p1" tag="p">
-      <a @click="open_eula" href="javascript:void(0);">
-        {{ $t("driver.p1-1") }}
-      </a>
+      <template>
+        <a @click="open_eula" href="javascript:void(0);">
+          {{ $t("driver.p1-1") }}
+          <img src="@/assets/open-fluent-icon.svg" height="14" />
+        </a>
+      </template>
     </i18n-t>
     <p>
       {{ $t("driver.p2") }}
