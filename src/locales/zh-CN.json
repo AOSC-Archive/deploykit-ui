@@ -185,5 +185,6 @@
     "empty": "无匹配",
     "sys-title": "AOSC OS 安装程序",
     "error1": "内部错误：跨进程通信不成功：{msg} 。",
-    "error2": "您的设备存储空间不足。所需空间：{r_size}，可用空间：{f_size}。"
+    "error2": "您的设备存储空间不足。所需空间：{r_size}，可用空间：{f_size}。",
+    "error3": "Dear time traveller, unfortunately, the AOSC OS installer at this timeline only supports up to 8PiB of RAM. So please try limiting the RAM available to this system if possible."
 }
