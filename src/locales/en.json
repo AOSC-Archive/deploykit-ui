@@ -6,7 +6,8 @@
         "l1": "Variant selection",
         "l2": "Disk partitioning",
         "l3": "System configuration",
-        "p2": "The installation process should only take a few minutes, but will require more time on slower hardware."
+        "p2": "The installation process should only take a few minutes, but will require more time on slower hardware.",
+        "sr-help": "Please note that Installer may use external programs that does not come with screen reader support, such as GParted, which is used for partitioning. You may want to seek assistance at those steps. Installer will notify you by announcing \"Please seek help before doing so.\""
     },
     "variant": {
         "title": "Variants",
@@ -47,6 +48,7 @@
         "title": "And... Done!",
         "p1": "Installer has successfully installed AOSC OS on your device!",
         "p2": "As you click on \"Finish,\" Installer will restart your device and AOSC OS will take it from here. Please eject or unplug your installation media when prompted to do so.",
+        "sr-help": "Please seek help before doing so, as this screen reader will stop guiding you after the installer exits. AOSC OS does not come with screen reader and other accessibility settings enabled by default, so you may need assistance setting up. Your assistant may find relevant documentations on our Wiki site.",
         "p3": "Thank you for your time and for choosing AOSC OS!",
         "finish": "Finish"
     },
