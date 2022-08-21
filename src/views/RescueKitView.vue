@@ -1,6 +1,6 @@
 <script setup>
 import DKListSelect from "@/components/DKListSelect.vue";
-import DKBottomSteps from "../components/DKBottomSteps.vue";
+import DKBottomSteps from "@/components/DKBottomSteps.vue";
 </script>
 
 <script>

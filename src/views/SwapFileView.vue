@@ -1,5 +1,5 @@
 <script>
-import DKBottomSteps from "../components/DKBottomSteps.vue";
+import DKBottomSteps from "@/components/DKBottomSteps.vue";
 export default {
   inject: ["config", "humanSize"],
   computed: {
