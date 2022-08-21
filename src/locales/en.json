@@ -152,7 +152,7 @@
         "eula_link": "https://www.nvidia.com/en-us/drivers/geforce-license/",
         "p2": "Would you like to install a system release with official NVIDIA drivers preinstalled?",
         "l1": "Installer will download and install NVIDIA's official Linux driver. By proceeding with this option, you agree to the aforementioned licensing terms.",
-        "l2": "Installer will proceed to install AOSC OS preinstalled with the open source Nouveau graphical stack."
+        "l2": "Installer will proceed to install AOSC OS preinstalled with the open source Nouveau graphical stack. When used with newer NVIDIA graphics cards, you may encounter issues such as display artifacts, freezes, startup failures, and lowered performance."
     },
     "slides": {
         "t1": "Made with Love",

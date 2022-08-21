@@ -152,7 +152,7 @@
         "eula_link": "https://www.nvidia.cn/drivers/geforce-license/",
         "p2": "是否要安装带有 NVIDIA 官方驱动的系统发行？",
         "l1": "安装程序将下载并安装 NVIDIA 的官方 Linux 驱动。选择该项意味着您同意该驱动包带有的相关许可协议。",
-        "l2": "安装程序将安装带有开源 Nouveau 图形栈的 AOSC OS 发行。"
+        "l2": "安装程序将安装带有开源 Nouveau 图形栈的 AOSC OS 发行。Nouveau 在配合较新的 NVIDIA 显卡使用时可能会出现花屏、死机、启动失败以及性能降低等问题。"
     },
     "slides": {
         "t1": "用爱发电",
