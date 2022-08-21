@@ -143,6 +143,15 @@
         "eta-1": "Almost finished... | Nearly finished... | {time} minutes remaining...",
         "eta-2": "Almost finished..."
     },
+    "driver": {
+        "title": "NVIDIA",
+        "p1": "Installer has detected a graphics card on your device that is supported by NVIDIA's official Linux driver. Installing this driver may improve system stability, power efficiency, and graphical performance. This driver is considered proprietary software and carries additional licensing terms in the {0}.",
+        "p1-1": "License For Customer Use of NVIDIA GeForce Software",
+        "eula_link": "https://www.nvidia.com/en-us/drivers/geforce-license/",
+        "p2": "Would you like to install a system release with official NVIDIA drivers preinstalled?",
+        "l1": "Installer will download and install NVIDIA's official Linux driver. By proceeding with this option, you agree to the aforementioned licensing terms.",
+        "l2": "Installer will proceed to install AOSC OS preinstalled with the open source Nouveau graphical stack."
+    },
     "slides": {
         "t1": "Made with Love",
         "p1": "AOSC OS is brought to you by a group of enthusiastic maintainers who works on their free time, hoping to bring you an efficient and reliable Linux experience.\nInstallation should take only a few minutes, but could take longer depending on your device's performance and Internet bandwidth. Please sit back and relax.\nDrinks are self-served, but we provide a complimentary Web browser, along with a sweet tune.",

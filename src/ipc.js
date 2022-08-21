@@ -45,8 +45,8 @@ function plugin(app) {
     call: function (method, args) {
       return ipc_send(method, args, true);
     },
-    notify: function (signal) {
-      ipc_send(signal);
+    notify: function (signal, args) {
+      ipc_send(signal, args);
     },
   };
   app.config.globalProperties["$ipc"] = ipc;

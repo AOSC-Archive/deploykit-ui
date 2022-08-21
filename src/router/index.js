@@ -14,6 +14,7 @@ import RescueKitView from "@/views/RescueKitView.vue";
 import PartitionView from "@/views/PartitionView.vue";
 import VariantView from "@/views/VariantView.vue";
 import InstallView from "@/views/InstallView.vue";
+import DriverView from "@/views/DriverView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -106,6 +107,11 @@ const router = createRouter({
       name: "install",
       component: InstallView,
       meta: { steps: 2 },
+    },
+    {
+      path: "/driver",
+      name: "driver",
+      component: DriverView,
     },
   ],
 });
