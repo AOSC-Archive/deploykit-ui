@@ -8,18 +8,12 @@ import DKSpinner from "@/components/DKSpinner.vue";
 
 <script>
 export default {
+  inject: ["config", "humanSize"],
   data: function () {
     return {
       selected: null,
       gparted: false,
-      partitions: [
-        {
-          path: "/dev/nvme0n1p1",
-          fs_type: null,
-          size: "200GiB",
-          comment: "Red Hat Enterprise Linux 8.5",
-        },
-      ],
+      partitions: [],
       loading: false,
     };
   },
