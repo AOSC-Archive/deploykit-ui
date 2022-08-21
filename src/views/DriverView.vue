@@ -18,7 +18,7 @@ export default {
           body: this.$t("driver.l2"),
         },
       ],
-      selected: null,
+      selected: 1,
     };
   },
   methods: {
